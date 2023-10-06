@@ -1,10 +1,16 @@
 package com.example.jmmoto.model.persona;
 
+import com.example.jmmoto.model.redsocial.RedSocial;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class AdminRedesSoc extends Persona{
     private String fechaContratacion;
     private String numeroSeguidores;
     private String numeroInteracciones;
     private double salario;
+    List<RedSocial> redSociales;
 
     public AdminRedesSoc(String nombre, String apellido, String cedula, String fechaNacimiento, String genero, String numeroTelefono, String email, String estadoCivil, String fechaContratacion, String numeroSeguidores, String numeroInteracciones, double salario) {
         super(nombre, apellido, cedula, fechaNacimiento, genero, numeroTelefono, email, estadoCivil);
@@ -12,6 +18,16 @@ public class AdminRedesSoc extends Persona{
         this.numeroSeguidores = numeroSeguidores;
         this.numeroInteracciones = numeroInteracciones;
         this.salario = salario;
+        this.redSociales = new ArrayList<>();
+    }
+
+    public List<RedSocial> getRedSocial() {
+
+        return redSociales;
+    }
+
+    public void setRedSocial(List<RedSocial> redSocial) {
+        this.redSociales = redSocial;
     }
 
     public AdminRedesSoc() {
