@@ -11,4 +11,8 @@ module com.example.jmmoto {
     opens com.example.jmmoto.controllers to javafx.fxml;
     exports com.example.jmmoto.controllers;
 
+    exports com.example.jmmoto.model.Factorys;
+    exports com.example.jmmoto.model;
+
+
 }
