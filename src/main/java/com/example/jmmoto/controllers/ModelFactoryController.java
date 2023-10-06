@@ -2,8 +2,6 @@ package com.example.jmmoto.controllers;
 
 import com.example.jmmoto.model.Factorys.FactoryPersona;
 import com.example.jmmoto.model.Taller;
-import com.example.jmmoto.model.persona.Persona;
-import com.example.jmmoto.model.persona.Tecnico;
 import com.example.jmmoto.persistencia.Persistencia;
 
 public class ModelFactoryController {
