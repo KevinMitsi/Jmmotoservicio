@@ -1,11 +1,26 @@
 package com.example.jmmoto.controllers;
 
+import com.example.jmmoto.model.Factorys.FactoryPersona;
 import com.example.jmmoto.model.Taller;
 import com.example.jmmoto.persistencia.Persistencia;
 
 public class ModelFactoryController {
     Taller taller;
     private FactoryPersona factoryPersona;
+
+
+
+
+
+
+
+
+
+
+
+    public FactoryPersona getFactoryPersona(){
+        return this.factoryPersona;
+    }
 
     //------------------------------  Singleton ------------------------------------------------
     // Clase estatica oculta. Tan solo se instanciara el singleton una vez
@@ -64,7 +79,6 @@ public class ModelFactoryController {
     private void inicializarDatos() {
         taller = new Taller();
         System.out.println("Domain inicializado "+ taller);
-
 
     }
 
