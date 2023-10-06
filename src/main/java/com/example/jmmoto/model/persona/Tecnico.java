@@ -1,5 +1,6 @@
 package com.example.jmmoto.model.persona;
 
+import com.example.jmmoto.model.Rol.Rol;
 import com.example.jmmoto.model.herramienta.Herramienta;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class Tecnico extends Persona{
     private String estadoEmpleo;
 
     private List<Herramienta>herramientas;
+    Rol rol;
 
     public Tecnico(String nombre, String apellido, String cedula, String fechaNacimiento, String genero, String numeroTelefono, String email, String estadoCivil, String id, String fechaContratacion, String experienciaLaboral, String horarioTrabajo, double salario, String estadoEmpleo) {
         super(nombre, apellido, cedula, fechaNacimiento, genero, numeroTelefono, email, estadoCivil);
@@ -24,6 +26,7 @@ public class Tecnico extends Persona{
         this.salario = salario;
         this.estadoEmpleo = estadoEmpleo;
         this.herramientas=new ArrayList<>();
+        this.rol=null;
     }
 
     public Tecnico() {
@@ -81,6 +84,14 @@ public class Tecnico extends Persona{
 
     public List<Herramienta> getHerramientas() {
         return herramientas;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
     public void setHerramientas(List<Herramienta> herramientas) {
