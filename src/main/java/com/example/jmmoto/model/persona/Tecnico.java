@@ -3,10 +3,11 @@ package com.example.jmmoto.model.persona;
 import com.example.jmmoto.model.Rol.Rol;
 import com.example.jmmoto.model.herramienta.Herramienta;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tecnico extends Persona{
+public class Tecnico extends Persona implements Serializable {
     private String  id;
     private String fechaContratacion;
     private String experienciaLaboral;

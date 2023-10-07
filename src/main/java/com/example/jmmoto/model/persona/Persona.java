@@ -1,8 +1,9 @@
 package com.example.jmmoto.model.persona;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Persona {
+public class Persona implements Serializable {
     private String id;
     private String nombre;
     private String apellido;

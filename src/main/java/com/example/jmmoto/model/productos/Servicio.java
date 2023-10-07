@@ -1,8 +1,9 @@
 package com.example.jmmoto.model.productos;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Servicio extends Producto{
+public class Servicio extends Producto implements Serializable {
     private String id;
     private String nombre;
     private double precio;

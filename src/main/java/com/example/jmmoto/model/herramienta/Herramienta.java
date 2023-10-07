@@ -1,8 +1,9 @@
 package com.example.jmmoto.model.herramienta;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Herramienta {
+public class Herramienta implements Serializable {
     private String id;
     private String numeroSerie;
     private String tipo;

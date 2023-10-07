@@ -1,0 +1,38 @@
+.rounded-textfield {
+    -fx-background-radius: 30;
+    -fx-border-width: 0;
+    -fx-background-color: #EDEDED;
+    -fx-prompt-text-fill: gray;
+    -fx-font-size: 14px;
+}
+
+.login-button {
+    -fx-background-color: #007BFF;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+}
+
+.forgot-password-link {
+    -fx-font-size: 14px;
+    -fx-text-fill: #007BFF;
+    -fx-underline: true;
+}
+
+.register-button {
+    -fx-font-size: 16px;
+    -fx-background-color: transparent;
+    -fx-text-fill: #007BFF;
+    -fx-border-width: 0;
+}
+
+.separator-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #888888;
+}
+/* Selector de ID para el AnchorPane principal */
+#mainAnchorPane {
+    -fx-background-color: white;
+}
+

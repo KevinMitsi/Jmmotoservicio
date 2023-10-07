@@ -5,11 +5,12 @@ import com.example.jmmoto.model.persona.Tecnico;
 import com.example.jmmoto.model.productos.Producto;
 import javafx.scene.image.Image;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Procedimiento {
+public class Procedimiento implements Serializable {
     private String id;
     private String nombre;
     private String descripcion;

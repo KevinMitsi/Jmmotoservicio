@@ -1,10 +1,11 @@
 package com.example.jmmoto.model.redsocial;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CuentaRed {
+public class CuentaRed implements Serializable {
     private String id;
     private String nombre;
     private String descripcion;

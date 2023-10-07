@@ -1,8 +1,9 @@
 package com.example.jmmoto.model.Rol;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Rol {
+public class Rol implements Serializable {
     private String id;
     private String nombre;
     private String descripcion;

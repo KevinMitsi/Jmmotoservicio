@@ -1,6 +1,8 @@
 package com.example.jmmoto.model.Rol;
 
-public class Especializado extends Capacitado{
+import java.io.Serializable;
+
+public class Especializado extends Capacitado implements Serializable {
     public Especializado() {
     }
 

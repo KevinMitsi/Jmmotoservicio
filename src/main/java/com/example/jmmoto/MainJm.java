@@ -1,5 +1,6 @@
 package com.example.jmmoto;
 
+import com.example.jmmoto.controllers.HelloController;
 import com.example.jmmoto.controllers.LoginViewController;
 import com.example.jmmoto.model.Factorys.FactoryPersona;
 import com.example.jmmoto.model.Taller;
@@ -20,8 +21,9 @@ public class MainJm extends Application {
     }
 
     private void inicializarLogin() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("loginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
         LoginViewController controller = fxmlLoader.getController();
         stage.setTitle("Bienvenido a Jmmotoservicio");
         stage.setScene(scene);

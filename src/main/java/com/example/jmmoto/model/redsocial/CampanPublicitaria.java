@@ -1,8 +1,9 @@
 package com.example.jmmoto.model.redsocial;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class CampanPublicitaria {
+public class CampanPublicitaria implements Serializable {
     private String id;
     private String nombre;
     private String objetivo;

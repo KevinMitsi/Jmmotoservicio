@@ -5,10 +5,11 @@ import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.persona.Tecnico;
 import com.example.jmmoto.model.procedimiento.Procedimiento;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-public class Factura {
+public class Factura implements Serializable {
     private String id;
     private String numeroFactura;
     private String fechaEmision;

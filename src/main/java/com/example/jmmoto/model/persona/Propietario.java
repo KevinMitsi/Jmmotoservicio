@@ -3,7 +3,9 @@ package com.example.jmmoto.model.persona;
 import com.example.jmmoto.model.Rol.Rol;
 import com.example.jmmoto.model.Rol.RolAdministrativo;
 
-public class Propietario extends Persona{
+import java.io.Serializable;
+
+public class Propietario extends Persona implements Serializable {
     Rol rol;
     public Propietario() {
     }

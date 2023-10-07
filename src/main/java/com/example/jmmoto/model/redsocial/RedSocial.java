@@ -2,11 +2,12 @@ package com.example.jmmoto.model.redsocial;
 
 import javafx.scene.image.Image;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class RedSocial {
+public class RedSocial implements Serializable {
     private String id;
     private String nombre;
     private Image logo;
