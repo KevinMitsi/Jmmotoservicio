@@ -7,11 +7,12 @@ import com.example.jmmoto.model.moto.Moto;
 import com.example.jmmoto.model.persona.*;
 import com.example.jmmoto.model.procedimiento.Procedimiento;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Sede {
+public class Sede implements Serializable {
     private String id;
     private String nombre;
     private String direccion;

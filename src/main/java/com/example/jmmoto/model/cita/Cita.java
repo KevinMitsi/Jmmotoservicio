@@ -4,11 +4,12 @@ import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.persona.Tecnico;
 import com.example.jmmoto.model.productos.Servicio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Cita {
+public class Cita implements Serializable {
     private Cliente cliente;
     private Tecnico tecnico;
     private List<Servicio>servicios;

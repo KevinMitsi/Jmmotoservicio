@@ -1,6 +1,8 @@
 package com.example.jmmoto.model.Rol;
 
-public class RolAdministrativo extends Rol{
+import java.io.Serializable;
+
+public class RolAdministrativo extends Rol implements Serializable {
     public RolAdministrativo(){}
 
     public RolAdministrativo(String nombre, String descripcion,

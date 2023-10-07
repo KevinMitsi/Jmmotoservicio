@@ -1,8 +1,9 @@
 package com.example.jmmoto.model.moto;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Moto {
+public class Moto implements Serializable {
     private String id;
     private String placa;
     private String modelo;

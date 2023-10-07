@@ -1,5 +1,7 @@
 package com.example.jmmoto.model.productos;
 
-public abstract class Producto {
+import java.io.Serializable;
+
+public abstract class Producto implements Serializable {
 
 }

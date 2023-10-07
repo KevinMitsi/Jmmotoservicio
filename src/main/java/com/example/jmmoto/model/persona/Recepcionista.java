@@ -2,7 +2,9 @@ package com.example.jmmoto.model.persona;
 
 import com.example.jmmoto.model.Rol.*;
 
-public class Recepcionista extends Persona{
+import java.io.Serializable;
+
+public class Recepcionista extends Persona implements Serializable {
     private String nivelEducacion;
     private String experienciaLaboral;
     private String salario;

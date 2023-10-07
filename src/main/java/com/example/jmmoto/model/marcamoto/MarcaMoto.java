@@ -3,11 +3,12 @@ package com.example.jmmoto.model.marcamoto;
 import com.example.jmmoto.model.moto.Moto;
 import javafx.scene.image.Image;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class MarcaMoto {
+public class MarcaMoto implements Serializable {
     private String id;
     private String nombre;
     private String paisOrigen;
