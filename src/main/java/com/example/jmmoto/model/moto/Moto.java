@@ -36,6 +36,14 @@ public class Moto implements Serializable {
         this.fechaCompra = fechaCompra;
     }
 
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
     public String getId() {
         return id;
     }
@@ -144,11 +152,11 @@ public class Moto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Moto moto)) return false;
-        return Objects.equals(getNumeroChasis(), moto.getNumeroChasis());
+        return Objects.equals(getPlaca(), moto.getPlaca()) && Objects.equals(getNumeroChasis(), moto.getNumeroChasis());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNumeroChasis());
+        return Objects.hash(getPlaca(), getNumeroChasis());
     }
 }

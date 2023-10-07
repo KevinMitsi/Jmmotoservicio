@@ -3,6 +3,8 @@ package com.example.jmmoto;
 import com.example.jmmoto.controllers.HelloController;
 import com.example.jmmoto.controllers.LoginViewController;
 import com.example.jmmoto.model.Factorys.FactoryPersona;
+import com.example.jmmoto.model.Factorys.FactorySede;
+import com.example.jmmoto.model.Factorys.InventarioCreator;
 import com.example.jmmoto.model.Taller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +27,7 @@ public class MainJm extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
         LoginViewController controller = fxmlLoader.getController();
+        controller.setMain(this);
         stage.setTitle("Bienvenido a Jmmotoservicio");
         stage.setScene(scene);
         stage.show();

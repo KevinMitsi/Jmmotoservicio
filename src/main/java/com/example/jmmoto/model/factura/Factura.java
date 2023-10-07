@@ -6,6 +6,7 @@ import com.example.jmmoto.model.persona.Tecnico;
 import com.example.jmmoto.model.procedimiento.Procedimiento;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,6 +44,7 @@ public class Factura implements Serializable {
         this.tecnicoDueno=tecnico;
         this.clienteDueno=cliente;
         this.motoIntervenida=moto;
+        this.procedimientos= new ArrayList<>();
     }
 
     public String getId() {

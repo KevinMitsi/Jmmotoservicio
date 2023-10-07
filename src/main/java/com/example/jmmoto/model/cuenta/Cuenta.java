@@ -18,6 +18,7 @@ public class Cuenta implements Serializable {
         this.foto=null;
     }
 
+
     public Cuenta() {
     }
 

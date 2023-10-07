@@ -16,7 +16,6 @@ public class MarcaMoto implements Serializable {
     private String publicoObjetivo;
     private Image logo;
     private String sitioweb;
-
     private List<Moto>motosMarca;
 
     public MarcaMoto(String nombre, String paisOrigen, String especializacion, String publicoObjetivo, String sitioweb) {

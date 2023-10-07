@@ -1,6 +1,6 @@
 package com.example.jmmoto.controllers;
 
-import com.example.jmmoto.model.Factorys.FactoryPersona;
+import com.example.jmmoto.model.Factorys.*;
 import com.example.jmmoto.model.Taller;
 import com.example.jmmoto.persistencia.Persistencia;
 
@@ -25,12 +25,6 @@ public class ModelFactoryController {
     }
 
     public ModelFactoryController() {
-
-
-        guardarResourceBinario();
-        cargarResourceXML();
-
-
         //Siempre se debe verificar si la raiz del recurso es null
         if(taller == null)
         {
@@ -39,6 +33,11 @@ public class ModelFactoryController {
             guardarResourceXML();
             guardarResourceBinario();
         }
+        else{
+            guardarResourceBinario();
+            cargarResourceXML();
+        }
+
 
         //Registrar la accion de incio de sesi�n
         Persistencia.guardaRegistroLog("Inicio de sesion del usuario:pedro", 1, "inicioSesion");
@@ -68,6 +67,20 @@ public class ModelFactoryController {
 
     private void inicializarDatos() {
         taller = new Taller();
+        taller.setCitaFactory(new FactoryCita());
+        taller.setCuentaFactory(new FactoryCuenta());
+        taller.setFacturaFactory(new FactoryFactura());
+        taller.setHerramientaFactory(new FactoryHerramienta());
+        taller.setMarcaMotoFactory(new FactoryMarca());
+        taller.setMotoFactory(new FactoryMoto());
+        taller.setPersonaFactory(new FactoryPersona());
+        taller.setProcedimientoFactory(new FactoryProcedimiento());
+        taller.setProductoFactory(new FactoryProducto());
+        taller.setRedSocialFactory(new FactoryRedSocial());
+        taller.setRolFactory(new FactoryRol());
+        taller.setSedeFactory(new FactorySede());
+        taller.setInventarioCreatorFactory(new InventarioCreator());
+
         System.out.println("Domain inicializado "+ taller);
     }
 
