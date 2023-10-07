@@ -12,7 +12,7 @@ public class Herramienta implements Serializable {
     private String fechaAdquisicion;
     private boolean disponibilidad;
 
-    public Herramienta(String id, String numeroSerie, String tipo, String marca, String estado, String fechaAdquisicion, boolean disponibilidad) {
+    public Herramienta(String numeroSerie, String tipo, String marca, String estado, String fechaAdquisicion, boolean disponibilidad) {
         this.id = String.valueOf(Objects.hash(getNumeroSerie()));
         this.numeroSerie = numeroSerie;
         this.tipo = tipo;

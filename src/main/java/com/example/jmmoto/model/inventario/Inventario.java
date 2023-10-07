@@ -3,6 +3,7 @@ package com.example.jmmoto.model.inventario;
 import com.example.jmmoto.model.herramienta.Herramienta;
 import com.example.jmmoto.model.productos.Producto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,13 +12,10 @@ public class Inventario {
     private List<Herramienta> herramientas;
     private List<Producto> productos;
 
-    public Inventario(List<Herramienta> herramientas, List<Producto> productos) {
-        this.id = String.valueOf(hashCode());
-        this.herramientas = herramientas;
-        this.productos = productos;
-    }
-
     public Inventario() {
+        this.id = String.valueOf(hashCode());
+        this.herramientas = new ArrayList<>();
+        this.productos = new ArrayList<>();
     }
 
     public String getId() {

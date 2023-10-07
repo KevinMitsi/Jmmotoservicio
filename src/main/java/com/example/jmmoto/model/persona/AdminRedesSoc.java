@@ -17,7 +17,7 @@ public class AdminRedesSoc extends Persona implements Serializable {
     private List<RedSocial> redSociales;
     private Cuenta cuenta;
 
-    public AdminRedesSoc(String nombre, String apellido, String cedula, String fechaNacimiento, String genero, String numeroTelefono, String email, String estadoCivil, String fechaContratacion, String numeroSeguidores, String numeroInteracciones, double salario) {
+    public AdminRedesSoc(String nombre, String apellido, String cedula, String fechaNacimiento, String genero, String numeroTelefono, String email, String estadoCivil, String fechaContratacion, String numeroSeguidores, String numeroInteracciones, double salario, Cuenta cuenta) {
         super(nombre, apellido, cedula, fechaNacimiento, genero, numeroTelefono, email, estadoCivil);
         this.fechaContratacion = fechaContratacion;
         this.id=String.valueOf(hashCode());
@@ -25,7 +25,7 @@ public class AdminRedesSoc extends Persona implements Serializable {
         this.numeroInteracciones = numeroInteracciones;
         this.salario = salario;
         this.redSociales = new ArrayList<>();
-        this.cuenta= new Cuenta();
+        this.cuenta= cuenta;
     }
 
     public List<RedSocial> getRedSocial() {

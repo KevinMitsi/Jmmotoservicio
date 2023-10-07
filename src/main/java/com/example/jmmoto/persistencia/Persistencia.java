@@ -3,9 +3,9 @@ import com.example.jmmoto.model.Taller;
 
 
 public class Persistencia {
-    public static final String RUTA_ARCHIVO_LOG = "C:\\Users\\Kevin\\Documents\\GitHub\\HostelsCocora\\src\\main\\java\\com\\example\\hostelscocora\\archivos\\HostelsLog.txt";
-    public static final String RUTA_ARCHIVO_MODELO_TALLER_BINARIO = "C:\\Users\\Kevin\\Documents\\GitHub\\HostelsCocora\\src\\main\\java\\com\\example\\hostelscocora\\archivos\\model.dat";
-    public static final String RUTA_ARCHIVO_MODELO_TALLER_XML = "C:\\Users\\Kevin\\Documents\\GitHub\\HostelsCocora\\src\\main\\java\\com\\example\\hostelscocora\\archivos\\model.xml";
+    public static final String RUTA_ARCHIVO_LOG = "C:\\Users\\Kevin\\Documents\\GitHub\\Jmmotoservicio\\src\\main\\java\\com\\example\\jmmoto\\archivo\\Log.log";
+    public static final String RUTA_ARCHIVO_MODELO_TALLER_BINARIO = "C:\\Users\\Kevin\\Documents\\GitHub\\Jmmotoservicio\\src\\main\\java\\com\\example\\jmmoto\\archivo\\model.dat";
+    public static final String RUTA_ARCHIVO_MODELO_TALLER_XML = "C:\\Users\\Kevin\\Documents\\GitHub\\Jmmotoservicio\\src\\main\\java\\com\\example\\jmmoto\\archivo\\model.xml";
 
 
     public static void guardaRegistroLog(String mensajeLog, int nivel, String accion)
