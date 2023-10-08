@@ -20,6 +20,7 @@ public class FactorySede implements SedeFactory, Serializable {
         sede.setTecnicos(new ArrayList<>());
         sede.setClientes(new ArrayList<>());
         sede.setCitas(new ArrayList<>());
+        sede.setCuentas(new ArrayList<>());
         return sede;
     }
 }

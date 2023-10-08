@@ -11,10 +11,9 @@ public class Cuenta implements Serializable {
     private String email;
     private Image foto;
 
-    public Cuenta(String usuario, String password, String email) {
+    public Cuenta(String usuario, String password) {
         this.usuario = usuario;
         this.password = password;
-        this.email = email;
         this.foto=null;
     }
 

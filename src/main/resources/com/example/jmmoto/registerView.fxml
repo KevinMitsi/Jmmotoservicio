@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.RegisterViewController">
+
+    <AnchorPane id="mainAnchorPane" prefHeight="600.0" prefWidth="800.0">
+
+        <!-- Título -->
+        <Label layoutX="20.0" layoutY="23.0" styleClass="title-label" text="¿Primera vez en la aplicación? Registrate" textAlignment="CENTER" textFill="#0e07ea" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="23.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+
+        <!-- Contenedor de Campos de Datos Personales -->
+        <VBox spacing="10" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0">
+
+            <!-- Nombre -->
+            <Label styleClass="field-label" text="Nombre:" />
+            <TextField fx:id="tfNombre" promptText="Ingrese su nombre" styleClass="rounded-textfield" />
+
+            <!-- Apellido -->
+            <Label styleClass="field-label" text="Apellido:" />
+            <TextField fx:id="tfApellido" promptText="Ingrese su apellido" styleClass="rounded-textfield" />
+
+            <!-- Cédula -->
+            <Label styleClass="field-label" text="Cédula:" />
+            <TextField fx:id="tfCedula" promptText="Ingrese su cédula" styleClass="rounded-textfield" />
+
+            <!-- Teléfono -->
+            <Label styleClass="field-label" text="Teléfono:" />
+            <TextField fx:id="tfTelefono" promptText="Ingrese su teléfono" styleClass="rounded-textfield" />
+
+            <!-- Correo Electrónico -->
+            <Label styleClass="field-label" text="Email:" />
+            <TextField fx:id="tfEmail" promptText="Ingrese su email" styleClass="rounded-textfield" />
+
+            <Label styleClass="field-label" text="Direccion:" />
+            <TextField fx:id="tfDireccion" promptText="Ingrese su direccion de residencia" styleClass="rounded-textfield" />
+
+
+            <!-- Fecha de Nacimiento -->
+            <Label styleClass="field-label" text="Fecha de Nacimiento:" />
+            <DatePicker fx:id="dpFecha" styleClass="rounded-textfield" />
+
+            <!-- Género -->
+            <Label styleClass="field-label" text="Género:" />
+            <ComboBox fx:id="cbGenero" styleClass="rounded-textfield">
+                <items>
+                    <!-- Agrega aquí los elementos del ComboBox para género -->
+                </items>
+            </ComboBox>
+
+            <!-- Estado Civil -->
+            <Label styleClass="field-label" text="Estado Civil:" />
+            <ComboBox fx:id="cbEstadoCivil" styleClass="rounded-textfield">
+                <items>
+                    <!-- Agrega aquí los elementos del ComboBox para estado civil -->
+                </items>
+            </ComboBox>
+
+            <!-- Nombre de Usuario -->
+            <Label styleClass="field-label" text="Nombre de Usuario:" />
+            <TextField fx:id="tfUsuario" promptText="Ingrese su nombre de usuario" styleClass="rounded-textfield" />
+
+            <!-- Contraseña -->
+            <Label styleClass="field-label" text="Contraseña:" />
+            <PasswordField fx:id="pfPassword" promptText="Ingrese su contraseña" styleClass="rounded-textfield" />
+
+            <!-- Selector de Archivo para la Foto de Perfil -->
+            <Label styleClass="field-label" text="Foto de Perfil:" />
+            <HBox spacing="10">
+                <TextField id="fileTextField" fx:id="tfRutaArchivo" promptText="Seleccione un archivo" styleClass="file-textfield" />
+                <Button onAction="#handleFileSelect" styleClass="file-button" text="Cargar" />
+            </HBox>
+
+            <!-- Botón para Enviar Información -->
+            <Button onAction="#enviarButtonClick" styleClass="login-button" text="Enviar Información" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+
+        </VBox>
+
+    </AnchorPane>
+
+</ScrollPane>

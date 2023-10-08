@@ -1,13 +1,13 @@
 package com.example.jmmoto;
 
-import com.example.jmmoto.controllers.HelloController;
-import com.example.jmmoto.controllers.LoginViewController;
-import com.example.jmmoto.controllers.ModelFactoryController;
-import com.example.jmmoto.controllers.PrimerPropietarioViewController;
+import com.example.jmmoto.controllers.*;
 import com.example.jmmoto.model.Factorys.FactoryPersona;
 import com.example.jmmoto.model.Factorys.FactorySede;
 import com.example.jmmoto.model.Factorys.InventarioCreator;
 import com.example.jmmoto.model.Taller;
+import com.example.jmmoto.model.persona.Cliente;
+import com.example.jmmoto.model.persona.Propietario;
+import com.example.jmmoto.model.sede.Sede;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,17 +26,17 @@ public class MainJm extends Application {
             abrirCrearPrimerPropietario();
         }
         else{
-            inicializarLogin();
+            Sede sede=domain.getFactorySedes().createSede("Jmmotoservicio","Cra 19 # 11 - 43","3108402499","jmmotoservicio92@gmail.com","7:00 a.m. - 12:00p.m. && 1:00p.m. - 5:3 p.m.", new Propietario());
+            inicializarLogin(sede);
         }
-
     }
 
-    private void inicializarLogin() throws IOException {
+    private void inicializarLogin(Sede sede) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("loginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
         LoginViewController controller = fxmlLoader.getController();
-        controller.setMain(this);
+        controller.setMain(this, sede);
         stage.setTitle("Bienvenido a Jmmotoservicio");
         stage.setScene(scene);
         stage.show();
@@ -59,5 +59,19 @@ public class MainJm extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public void abrirRegister(String posibleUser, Sede sede) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("registerView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
+        RegisterViewController controller = fxmlLoader.getController();
+        controller.setMain(this, posibleUser,sede);
+        stage.setTitle("Registro");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirPanelCliente(Cliente cliente, Sede sede) {
     }
 }

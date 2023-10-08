@@ -7,13 +7,13 @@ import java.io.Serializable;
 
 public class FactoryCuenta implements CuentaFactory, Serializable {
     @Override
-    public Cuenta createCuenta(String usuario, String password, String email) {
-        return new Cuenta(usuario, password, email);
+    public Cuenta createCuenta(String usuario, String password) {
+        return new Cuenta(usuario, password);
     }
 
     @Override
-    public Cuenta createCuentaConFoto(String usuario, String password, String email, Image foto) {
-        Cuenta cuenta = new Cuenta(usuario, password, email);
+    public Cuenta createCuentaConFoto(String usuario, String password,Image foto) {
+        Cuenta cuenta = new Cuenta(usuario, password);
         cuenta.setFoto(foto);
         return cuenta;
     }

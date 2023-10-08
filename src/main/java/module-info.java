@@ -3,6 +3,7 @@ module com.example.jmmoto {
     requires javafx.fxml;
     requires java.desktop;
     requires java.logging;
+    requires java.mail;
 
 
     opens com.example.jmmoto to javafx.fxml;
