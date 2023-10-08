@@ -2,6 +2,8 @@ package com.example.jmmoto;
 
 import com.example.jmmoto.controllers.HelloController;
 import com.example.jmmoto.controllers.LoginViewController;
+import com.example.jmmoto.controllers.ModelFactoryController;
+import com.example.jmmoto.controllers.PrimerPropietarioViewController;
 import com.example.jmmoto.model.Factorys.FactoryPersona;
 import com.example.jmmoto.model.Factorys.FactorySede;
 import com.example.jmmoto.model.Factorys.InventarioCreator;
@@ -14,12 +16,19 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainJm extends Application {
-    Taller taller = new Taller();
+    ModelFactoryController domain = ModelFactoryController.getInstance();
     private Stage stage;
+
     @Override
     public void start(Stage stage) throws IOException {
         this.stage=stage;
-        inicializarLogin();
+        if (domain.isNew()){
+            abrirCrearPrimerPropietario();
+        }
+        else{
+            inicializarLogin();
+        }
+
     }
 
     private void inicializarLogin() throws IOException {
@@ -29,6 +38,21 @@ public class MainJm extends Application {
         LoginViewController controller = fxmlLoader.getController();
         controller.setMain(this);
         stage.setTitle("Bienvenido a Jmmotoservicio");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public static void abrirCrearSede() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("primeraSedeView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
+    }
+    public void abrirCrearPrimerPropietario() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("primerPropietarioView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
+        PrimerPropietarioViewController controller = fxmlLoader.getController();
+        controller.setMain(this);
+        stage.setTitle("Primera vez");
         stage.setScene(scene);
         stage.show();
     }

@@ -1,22 +1,75 @@
 package com.example.jmmoto.controllers;
 
+import com.example.jmmoto.MainJm;
 import com.example.jmmoto.model.Factorys.*;
 import com.example.jmmoto.model.Taller;
 import com.example.jmmoto.persistencia.Persistencia;
 
+import java.io.IOException;
+
 public class ModelFactoryController {
     Taller taller;
-    private FactoryPersona factoryPersona;
+    MainJm main;
 
-    public FactoryPersona getFactoryPersona(){
-        return this.factoryPersona;
+    //Funciones del Domain
+    public FactoryCita getFactoryCitas(){
+        return taller.getCitaFactory();
     }
-
+    public FactoryCuenta getFactoryCuentas(){
+        return taller.getCuentaFactory();
+    }
+    public FactoryFactura getFactoryFacturas(){
+        return taller.getFacturaFactory();
+    }
+    public FactoryHerramienta getFactoryHerramientas(){
+        return taller.getHerramientaFactory();
+    }
+    public FactoryMarca getFactoryMarcas(){
+        return taller.getMarcaMotoFactory();
+    }
+    public FactoryMoto getFactoryMotos(){
+        return taller.getMotoFactory();
+    }
+    public FactoryPersona getFactoryPersonas(){
+        return taller.getFactoryPersona();
+    }
+    public FactoryProcedimiento getFactoryProcedimientos(){
+        return taller.getFactoryProcedimiento();
+    }
+    public FactoryProducto getFactoryProductos(){
+        return taller.getFactoryProducto();
+    }
+    public FactoryRedSocial getFactoryRedSocial(){
+        return taller.getFactoryRedSocial();
+    }
+    public FactoryRol getFactoryRoles(){
+        return taller.getFactoryRol();
+    }
+    public FactorySede getFactorySedes(){
+        return taller.getFactorySede();
+    }
+    public InventarioCreator getInventario(){
+        return taller.getInventarioCreatorFactory();
+    }
+    public boolean isNew(){
+        return taller.isNew();
+    }
+    public void setNew(boolean value){
+        taller.setNew(value);
+    }
     //------------------------------  Singleton ------------------------------------------------
     // Clase estatica oculta. Tan solo se instanciara el singleton una vez
     private static class SingletonHolder {
         // El constructor de Singleton puede ser llamado desde aqu� al ser protected
-        private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
+        private final static ModelFactoryController eINSTANCE;
+
+        static {
+            try {
+                eINSTANCE = new ModelFactoryController();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     // M�todo para obtener la instancia de nuestra clase
@@ -24,7 +77,7 @@ public class ModelFactoryController {
         return SingletonHolder.eINSTANCE;
     }
 
-    public ModelFactoryController() {
+    public ModelFactoryController() throws IOException {
         //Siempre se debe verificar si la raiz del recurso es null
         if(taller == null)
         {
@@ -65,7 +118,7 @@ public class ModelFactoryController {
 
 
 
-    private void inicializarDatos() {
+    private void inicializarDatos() throws IOException {
         taller = new Taller();
         taller.setCitaFactory(new FactoryCita());
         taller.setCuentaFactory(new FactoryCuenta());
@@ -73,16 +126,18 @@ public class ModelFactoryController {
         taller.setHerramientaFactory(new FactoryHerramienta());
         taller.setMarcaMotoFactory(new FactoryMarca());
         taller.setMotoFactory(new FactoryMoto());
-        taller.setPersonaFactory(new FactoryPersona());
-        taller.setProcedimientoFactory(new FactoryProcedimiento());
-        taller.setProductoFactory(new FactoryProducto());
-        taller.setRedSocialFactory(new FactoryRedSocial());
-        taller.setRolFactory(new FactoryRol());
-        taller.setSedeFactory(new FactorySede());
+        taller.setFactoryPersona(new FactoryPersona());
+        taller.setFactoryProcedimiento(new FactoryProcedimiento());
+        taller.setFactoryProducto(new FactoryProducto());
+        taller.setFactoryRedSocial(new FactoryRedSocial());
+        taller.setFactoryRol(new FactoryRol());
+        taller.setFactorySede(new FactorySede());
         taller.setInventarioCreatorFactory(new InventarioCreator());
-
+        taller.setNew(true);
         System.out.println("Domain inicializado "+ taller);
     }
+
+
 
 
 
