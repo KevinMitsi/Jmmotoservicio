@@ -1,39 +1,35 @@
 package com.example.jmmoto.model;
 
-import com.example.jmmoto.model.Factorys.Interfaces.*;
-import com.example.jmmoto.model.Factorys.InventarioCreator;
-
-import java.io.Serializable;
-
-
+import com.example.jmmoto.model.Factorys.*;
 import java.io.Serializable;
 
 public class Taller implements Serializable {
-    private SedeFactory sedeFactory;
+    private FactorySede factorySede;
     private InventarioCreator inventarioCreatorFactory;
-    private CuentaFactory cuentaFactory;
-    private CitaFactory citaFactory;
-    private FacturaFactory facturaFactory;
-    private HerramientaFactory herramientaFactory;
-    private MarcaMotoFactory marcaMotoFactory;
-    private MotoFactory motoFactory;
-    private PersonaFactory personaFactory;
-    private ProcedimientoFactory procedimientoFactory;
-    private ProductoFactory productoFactory;
-    private RedSocialFactory redSocialFactory;
-    private RolFactory rolFactory;
+    private FactoryCuenta cuentaFactory;
+    private FactoryCita citaFactory;
+    private FactoryFactura facturaFactory;
+    private FactoryHerramienta herramientaFactory;
+    private FactoryMarca marcaMotoFactory;
+    private FactoryMoto motoFactory;
+    private FactoryPersona factoryPersona;
+    private FactoryProcedimiento factoryProcedimiento;
+    private FactoryProducto factoryProducto;
+    private FactoryRedSocial factoryRedSocial;
+    private FactoryRol factoryRol;
+    private boolean isNew;
 
 
     public Taller(){
         
     }
 
-    public SedeFactory getSedeFactory() {
-        return sedeFactory;
+    public FactorySede getFactorySede() {
+        return factorySede;
     }
 
-    public void setSedeFactory(SedeFactory sedeFactory) {
-        this.sedeFactory = sedeFactory;
+    public void setFactorySede(FactorySede factorySede) {
+        this.factorySede = factorySede;
     }
 
     public InventarioCreator getInventarioCreatorFactory() {
@@ -44,91 +40,99 @@ public class Taller implements Serializable {
         this.inventarioCreatorFactory = inventarioCreatorFactory;
     }
 
-    public CuentaFactory getCuentaFactory() {
+    public FactoryCuenta getCuentaFactory() {
         return cuentaFactory;
     }
 
-    public void setCuentaFactory(CuentaFactory cuentaFactory) {
+    public void setCuentaFactory(FactoryCuenta cuentaFactory) {
         this.cuentaFactory = cuentaFactory;
     }
 
-    public CitaFactory getCitaFactory() {
+    public FactoryCita getCitaFactory() {
         return citaFactory;
     }
 
-    public void setCitaFactory(CitaFactory citaFactory) {
+    public void setCitaFactory(FactoryCita citaFactory) {
         this.citaFactory = citaFactory;
     }
 
-    public FacturaFactory getFacturaFactory() {
+    public FactoryFactura getFacturaFactory() {
         return facturaFactory;
     }
 
-    public void setFacturaFactory(FacturaFactory facturaFactory) {
+    public void setFacturaFactory(FactoryFactura facturaFactory) {
         this.facturaFactory = facturaFactory;
     }
 
-    public HerramientaFactory getHerramientaFactory() {
+    public FactoryHerramienta getHerramientaFactory() {
         return herramientaFactory;
     }
 
-    public void setHerramientaFactory(HerramientaFactory herramientaFactory) {
+    public void setHerramientaFactory(FactoryHerramienta herramientaFactory) {
         this.herramientaFactory = herramientaFactory;
     }
 
-    public MarcaMotoFactory getMarcaMotoFactory() {
+    public FactoryMarca getMarcaMotoFactory() {
         return marcaMotoFactory;
     }
 
-    public void setMarcaMotoFactory(MarcaMotoFactory marcaMotoFactory) {
+    public void setMarcaMotoFactory(FactoryMarca marcaMotoFactory) {
         this.marcaMotoFactory = marcaMotoFactory;
     }
 
-    public MotoFactory getMotoFactory() {
+    public FactoryMoto getMotoFactory() {
         return motoFactory;
     }
 
-    public void setMotoFactory(MotoFactory motoFactory) {
+    public void setMotoFactory(FactoryMoto motoFactory) {
         this.motoFactory = motoFactory;
     }
 
-    public PersonaFactory getPersonaFactory() {
-        return personaFactory;
+    public FactoryPersona getFactoryPersona() {
+        return factoryPersona;
     }
 
-    public void setPersonaFactory(PersonaFactory personaFactory) {
-        this.personaFactory = personaFactory;
+    public void setFactoryPersona(FactoryPersona factoryPersona) {
+        this.factoryPersona = factoryPersona;
     }
 
-    public ProcedimientoFactory getProcedimientoFactory() {
-        return procedimientoFactory;
+    public FactoryProcedimiento getFactoryProcedimiento() {
+        return factoryProcedimiento;
     }
 
-    public void setProcedimientoFactory(ProcedimientoFactory procedimientoFactory) {
-        this.procedimientoFactory = procedimientoFactory;
+    public void setFactoryProcedimiento(FactoryProcedimiento factoryProcedimiento) {
+        this.factoryProcedimiento = factoryProcedimiento;
     }
 
-    public ProductoFactory getProductoFactory() {
-        return productoFactory;
+    public FactoryProducto getFactoryProducto() {
+        return factoryProducto;
     }
 
-    public void setProductoFactory(ProductoFactory productoFactory) {
-        this.productoFactory = productoFactory;
+    public void setFactoryProducto(FactoryProducto factoryProducto) {
+        this.factoryProducto = factoryProducto;
     }
 
-    public RedSocialFactory getRedSocialFactory() {
-        return redSocialFactory;
+    public FactoryRedSocial getFactoryRedSocial() {
+        return factoryRedSocial;
     }
 
-    public void setRedSocialFactory(RedSocialFactory redSocialFactory) {
-        this.redSocialFactory = redSocialFactory;
+    public void setFactoryRedSocial(FactoryRedSocial factoryRedSocial) {
+        this.factoryRedSocial = factoryRedSocial;
     }
 
-    public RolFactory getRolFactory() {
-        return rolFactory;
+    public FactoryRol getFactoryRol() {
+        return factoryRol;
     }
 
-    public void setRolFactory(RolFactory rolFactory) {
-        this.rolFactory = rolFactory;
+    public void setFactoryRol(FactoryRol factoryRol) {
+        this.factoryRol = factoryRol;
+    }
+
+    public boolean isNew() {
+        return isNew;
+    }
+
+    public void setNew(boolean aNew) {
+        isNew = aNew;
     }
 }
