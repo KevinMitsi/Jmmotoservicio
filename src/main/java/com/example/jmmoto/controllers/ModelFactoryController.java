@@ -133,7 +133,7 @@ public class ModelFactoryController {
         taller.setFactoryRol(new FactoryRol());
         taller.setFactorySede(new FactorySede());
         taller.setInventarioCreatorFactory(new InventarioCreator());
-        taller.setNew(true);
+        taller.setNew(false);
         System.out.println("Domain inicializado "+ taller);
     }
 

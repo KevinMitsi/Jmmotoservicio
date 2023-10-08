@@ -1,6 +1,7 @@
 package com.example.jmmoto.model.sede;
 
 import com.example.jmmoto.model.cita.Cita;
+import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.factura.Factura;
 import com.example.jmmoto.model.inventario.Inventario;
 import com.example.jmmoto.model.moto.Moto;
@@ -30,6 +31,8 @@ public class Sede implements Serializable {
     private List<Tecnico>tecnicos;
     private List<Cliente>clientes;
     private List<Cita>citas;
+    private List<Cuenta>cuentas;
+    private List<Persona>personas;
 
     public Sede(String nombre, String direccion, String telefono, String email, String horario, Propietario propietario) {
         this.id = String.valueOf(hashCode());
@@ -49,6 +52,18 @@ public class Sede implements Serializable {
         this.tecnicos=new ArrayList<>();
         this.clientes=new ArrayList<>();
         this.citas=new ArrayList<>();
+        this.cuentas=new ArrayList<>();
+        this.personas=agregarPeronas();
+    }
+
+    private List<Persona> agregarPeronas() {
+        List<Persona> personas = new ArrayList<>(this.adminRedesSocs);
+        personas.addAll(this.recepcionistas);
+        personas.addAll(this.tecnicos);
+        personas.addAll(this.clientes);
+        personas.addAll(this.analistas);
+        personas.add(this.propietario);
+        return personas;
     }
 
     public String getId() {
@@ -77,6 +92,14 @@ public class Sede implements Serializable {
 
     public String getTelefono() {
         return telefono;
+    }
+
+    public List<Cuenta> getCuentas() {
+        return cuentas;
+    }
+
+    public void setCuentas(List<Cuenta> cuentas) {
+        this.cuentas = cuentas;
     }
 
     public void setTelefono(String telefono) {
@@ -196,5 +219,23 @@ public class Sede implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(getNombre(), getDireccion(), getTelefono());
+    }
+//-------------------Metodos propios de clase----------------------------
+    public boolean verificarCuenta(Cuenta cuenta) {
+        return this.cuentas.contains(cuenta);
+    }
+
+    public Cliente retornarClienteAsociado(Cuenta cuenta) throws Exception {
+        if (verificarCuenta(cuenta)){
+            for (Cliente cliente: clientes) {
+                if (cliente.getCuenta().equals(cuenta)){
+                    return cliente;
+                }
+            }
+            return null;
+        }
+        else {
+            throw new Exception("Usuario no encontrado");
+        }
     }
 }

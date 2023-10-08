@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="19.0.2" class="java.beans.XMLDecoder">
+ <object class="com.example.jmmoto.model.Taller">
+  <void property="citaFactory">
+   <object class="com.example.jmmoto.model.Factorys.FactoryCita"/>
+  </void>
+  <void property="cuentaFactory">
+   <object class="com.example.jmmoto.model.Factorys.FactoryCuenta"/>
+  </void>
+  <void property="factoryPersona">
+   <object class="com.example.jmmoto.model.Factorys.FactoryPersona"/>
+  </void>
+  <void property="factoryProcedimiento">
+   <object class="com.example.jmmoto.model.Factorys.FactoryProcedimiento"/>
+  </void>
+  <void property="factoryProducto">
+   <object class="com.example.jmmoto.model.Factorys.FactoryProducto"/>
+  </void>
+  <void property="factoryRedSocial">
+   <object class="com.example.jmmoto.model.Factorys.FactoryRedSocial"/>
+  </void>
+  <void property="factoryRol">
+   <object class="com.example.jmmoto.model.Factorys.FactoryRol"/>
+  </void>
+  <void property="factorySede">
+   <object class="com.example.jmmoto.model.Factorys.FactorySede"/>
+  </void>
+  <void property="facturaFactory">
+   <object class="com.example.jmmoto.model.Factorys.FactoryFactura"/>
+  </void>
+  <void property="herramientaFactory">
+   <object class="com.example.jmmoto.model.Factorys.FactoryHerramienta"/>
+  </void>
+  <void property="inventarioCreatorFactory">
+   <object class="com.example.jmmoto.model.Factorys.InventarioCreator"/>
+  </void>
+  <void property="marcaMotoFactory">
+   <object class="com.example.jmmoto.model.Factorys.FactoryMarca"/>
+  </void>
+  <void property="motoFactory">
+   <object class="com.example.jmmoto.model.Factorys.FactoryMoto"/>
+  </void>
+ </object>
+</java>
