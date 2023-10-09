@@ -238,4 +238,19 @@ public class Sede implements Serializable {
             throw new Exception("Usuario no encontrado");
         }
     }
+
+    public void agregarCiente(Cliente cliente) {
+        clientes.add(cliente);
+        personas.add(cliente);
+        cuentas.add(cliente.getCuenta());
+    }
+
+    public boolean existUsuario(String text) {
+        for (Cuenta cuenta: cuentas) {
+            if (cuenta.getUsuario().equals(text)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

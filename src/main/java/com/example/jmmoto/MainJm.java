@@ -31,7 +31,7 @@ public class MainJm extends Application {
         }
     }
 
-    private void inicializarLogin(Sede sede) throws IOException {
+    public void inicializarLogin(Sede sede) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("loginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
