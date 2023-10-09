@@ -13,6 +13,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -20,6 +21,10 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.util.Properties;
 
@@ -43,16 +48,23 @@ public class RegisterViewController {
     public TextField tfRutaArchivo;
 
     public void handleFileSelect(ActionEvent actionEvent) {
-        JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de imagen", "jpg", "jpeg", "png", "gif");
-        fileChooser.setFileFilter(filter);
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivos de imagen", "*.jpg", "*.jpeg", "*.png", "*.gif"));
+        File selectedFile = fileChooser.showOpenDialog(null);
 
-        int result = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            try {
+                // Ruta destino en el paquete profilePhotos
+                String destino = "src/main/java/com/example/jmmoto/profilePhotos/" + selectedFile.getName();
 
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser.getSelectedFile();
-            String imagePath = selectedFile.getAbsolutePath();
-            tfRutaArchivo.setText(imagePath);
+                // Copiar el archivo seleccionado al paquete profilePhotos
+                Files.copy(selectedFile.toPath(), Paths.get(destino), StandardCopyOption.REPLACE_EXISTING);
+
+                // Actualizar el campo tfRutaArchivo con la ruta del archivo
+                tfRutaArchivo.setText(destino);
+            } catch (IOException e) {
+                Alerta.saltarAlertaError("Error al copiar la imagen: " + e.getMessage());
+            }
         }
     }
 

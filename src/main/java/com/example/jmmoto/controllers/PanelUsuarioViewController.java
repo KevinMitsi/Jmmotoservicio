@@ -8,12 +8,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
+import java.io.IOException;
+
 public class PanelUsuarioViewController {
     public ScrollPane scrollPane;
+    public ImageView imgPerfil;
     MainJm main;
     Cliente clienteLogeado;
     @FXML
@@ -21,7 +26,12 @@ public class PanelUsuarioViewController {
 
     @FXML
     private void initialize() {
-        // Inicialización del controlador
+
+    }
+
+    @FXML
+    public void onProfileImgClick(MouseEvent mouseEvent) throws IOException {
+        main.inicializarLogin();
     }
     @FXML
     private void onServiciosButtonClick() {
@@ -60,12 +70,18 @@ public class PanelUsuarioViewController {
         imageView.setFitHeight(100);  // Establecer la altura deseada
         imageView.setPreserveRatio(true);  // Mantener la proporción de la imagen
         Label titleLabel = new Label(titulo);
+        titleLabel.getStyleClass().add("rounded-textfield"); // Aplicar estilo al título
+
         Label descriptionLabel = new Label(descripcion);
+        descriptionLabel.getStyleClass().add("rounded-textfield"); // Aplicar estilo a la descripción
+
         Button assignButton = new Button("Asignar cita");
+        assignButton.getStyleClass().add("login-button"); // Aplicar estilo al botón
 
         // Crear el panel de la publicación
         VBox publicationPane = new VBox(imageView, titleLabel, descriptionLabel, assignButton);
         publicationPane.getStyleClass().add("publication-pane");
+        // Crear el panel de la publicación
 
         return publicationPane;
     }
@@ -91,5 +107,29 @@ public class PanelUsuarioViewController {
     public void setMain(MainJm mainJm, Cliente cliente) {
         main=mainJm;
         clienteLogeado=cliente;
+        ponerImg(clienteLogeado);
     }
+
+    private void ponerImg(Cliente clienteLogeado) {
+        String urlFoto = clienteLogeado.getCuenta().getUrlFoto();
+        System.out.println("URL de la imagen: " + urlFoto); // Agrega esta línea para depuración
+
+        if (urlFoto != null) {
+            File file = new File(urlFoto);
+            if (file.exists()) {
+                Image image = new Image(file.toURI().toString());
+                this.imgPerfil.setImage(image);
+            } else {
+                System.err.println("El archivo de imagen no existe en la ubicación especificada.");
+                // Cargar una imagen predeterminada en su lugar
+                this.imgPerfil.setImage(new Image(getClass().getResourceAsStream("/com/example/jmmoto/user.png")));
+            }
+        } else {
+            System.err.println("La URL de la imagen es nula.");
+            // Cargar una imagen predeterminada en su lugar
+            this.imgPerfil.setImage(new Image(getClass().getResourceAsStream("/com/example/jmmoto/user.png")));
+        }
+    }
+
+
 }
