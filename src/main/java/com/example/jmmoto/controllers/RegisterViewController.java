@@ -1,12 +1,16 @@
 package com.example.jmmoto.controllers;
 
 import com.example.jmmoto.MainJm;
+import com.example.jmmoto.model.cuenta.Cuenta;
+import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.sede.Sede;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -14,6 +18,7 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
+import java.time.LocalDate;
 import java.util.Properties;
 
 
@@ -53,6 +58,12 @@ public class RegisterViewController {
         try{
             verificarCampos();
             enviarMensajeCorreo();
+            Image image = new Image(tfRutaArchivo.getText());
+            Cuenta cuenta=domai.getFactoryCuentas().createCuentaConFoto(tfUsuario.getText(),pfPassword.getText(),image);
+            cuenta.setEmail(tfEmail.getText());
+            Cliente cliente=domai.getFactoryPersonas().createCliente(tfNombre.getText(),tfApellido.getText(),tfCedula.getText(),String.valueOf(dpFecha.getValue()),cbGenero.getValue(),tfTelefono.getText(),tfEmail.getText(),cbEstadoCivil.getValue(),tfDireccion.getText(),cuenta);
+            sede.agregarCiente(cliente);
+            main.inicializarLogin(sede);
 
         } catch (Exception e) {
             Alerta.saltarAlertaError(e.getMessage());
@@ -62,7 +73,7 @@ public class RegisterViewController {
     private void enviarMensajeCorreo() throws Exception {
         // Configuración del servidor de correo electrónico
         String correoEmisor = "kegarrapala.2003@gmail.com"; // Dirección de correo del emisor
-        String contrasena = "tucontraseña"; // Contraseña del correo del emisor
+        String contrasena = "vjlxcltitkrpobbh"; // Contraseña del correo del emisor
         String correoReceptor = tfEmail.getText(); // Dirección de correo del receptor
 
         Properties props = new Properties();
@@ -84,14 +95,14 @@ public class RegisterViewController {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(correoEmisor));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(correoReceptor));
-            message.setSubject("Aviso de creación de cuenta exitoso"); // Asunto del correo
-            message.setText("Cuerpo del correo"); // Cuerpo del correo
+            message.setSubject("Beinvenido/a a Jmmotoservicios"); // Asunto del correo
+            message.setText("Bienvenido a nuesra aplicación: "+tfNombre.getText()+" "+tfApellido.getText()+"\nes un placer para nosotros comentarte que te has registrado en nuestra apliación a las: " + LocalDate.now()); // Cuerpo del correo
 
             // Enviar el mensaje
             Transport.send(message);
 
             // Mensaje enviado con éxito
-            System.out.println("Correo enviado con éxito.");
+            Alerta.saltarAlertaConfirmacion("Correo enviado con éxito.");
         } catch (MessagingException e) {
             // Error al enviar el correo
             throw new Exception("Error al enviar el correo: " + e.getMessage());
@@ -117,7 +128,23 @@ public class RegisterViewController {
         if (tfUsuario.getText().isBlank()){
             throw new Exception("El usuario no puede ser vacío");
         }
+        if (dpFecha.getValue()==null){
+            throw new Exception("La fecha no puede ser vacía");
+        }
+        if (cbGenero.getValue()==null){
+            throw new Exception("El genero no puede ser null");
+        }
+        if (cbEstadoCivil.getValue()==null){
+            throw new Exception("Seleccione un estado civil");
+        }
         verificarContrasena(pfPassword.getText());
+        verificarUsuario(tfUsuario.getText());
+    }
+
+    private void verificarUsuario(String text) throws Exception {
+        if (sede.existUsuario(text)){
+            throw new Exception("Usuario ya registrado");
+        }
     }
 
     private void verificarContrasena(String password) throws Exception {
@@ -146,5 +173,15 @@ public class RegisterViewController {
         this.main=mainJm;
         this.posibleUSer=posibleUser;
         this.sede=sede;
+    }
+    @FXML
+    void initialize(){
+        cbEstadoCivil.getItems().add("Soltero/a");
+        cbEstadoCivil.getItems().add("Casado/a");
+        cbEstadoCivil.getItems().add("Viudo/a");
+        cbEstadoCivil.getItems().add("Union libre");
+        cbGenero.getItems().add("Masculino");
+        cbGenero.getItems().add("Femenino");
+        cbGenero.getItems().add("Prefiero no especificarlo");
     }
 }
