@@ -12,13 +12,15 @@
     <!-- Barra de navegación -->
     <HBox styleClass="nav-bar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <Region HBox.hgrow="ALWAYS"/>
-        <Button text="Servicios" styleClass="nav-button"/>
-        <Button text="Repuestos" styleClass="nav-button"/>
+        <Button text="Servicios" onAction="#onServiciosButtonClick" styleClass="nav-button"/>
+        <Button text="Repuestos" onAction="#onRepuestosButtonClick" styleClass="nav-button"/>
         <Region HBox.hgrow="ALWAYS"/>
         <ImageView styleClass="profile-image"/>
     </HBox>
 
-    <!-- Pane vacío para cambiar el contenido -->
-    <VBox fx:id="contentPane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0"/>
+    <!-- ScrollPane para las publicaciones -->
+    <ScrollPane fx:id="scrollPane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+        <VBox fx:id="contentPane" prefWidth="580.0"/>
+    </ScrollPane>
 
 </AnchorPane>
