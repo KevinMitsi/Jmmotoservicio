@@ -15,16 +15,16 @@ public class LoginViewController {
     public TextField usernameField;
     MainJm main;
     ModelFactoryController domain = ModelFactoryController.getInstance();
-    Sede sede;
-    int numIntentosPermitidos=3;
+    Sede sede = domain.getSedes();
+    int numIntentosPermitidos=4;
 
 
     public void registerButtonClick(ActionEvent actionEvent) throws IOException {
         if (usernameField!=null){
-            main.abrirRegister(usernameField.getText(), sede);
+            main.abrirRegister(usernameField.getText());
         }
         else{
-            main.abrirRegister(null, sede);
+            main.abrirRegister(null);
         }
     }
 
@@ -36,7 +36,7 @@ public class LoginViewController {
                 Cuenta cuenta = new Cuenta(user, password);
                 try{
                     Cliente cliente =sede.retornarClienteAsociado(cuenta);
-                    main.abrirPanelCliente(cliente, sede);
+                    main.abrirPanelCliente(cliente);
                 } catch (Exception e) {
                     Alerta.saltarAlertaError(e.getMessage());
                     numIntentosPermitidos--;
@@ -55,9 +55,8 @@ public class LoginViewController {
     }
 
 
-    public void setMain(MainJm mainJm, Sede sede) {
+    public void setMain(MainJm mainJm) {
         this.main=mainJm;
-        this.sede=sede;
     }
 
     public void recuperarContrasena(ActionEvent actionEvent) {

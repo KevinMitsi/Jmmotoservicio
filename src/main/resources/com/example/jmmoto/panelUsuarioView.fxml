@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.jmmoto.controllers.PanelUsuarioViewController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <!-- Barra de navegación -->
+    <HBox styleClass="nav-bar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Servicios" styleClass="nav-button"/>
+        <Button text="Repuestos" styleClass="nav-button"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <ImageView styleClass="profile-image"/>
+    </HBox>
+
+    <!-- Pane vacío para cambiar el contenido -->
+    <VBox fx:id="contentPane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0"/>
+
+</AnchorPane>

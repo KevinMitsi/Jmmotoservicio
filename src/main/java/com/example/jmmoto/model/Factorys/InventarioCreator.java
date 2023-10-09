@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class InventarioCreator implements Serializable {
 
-    public Inventario crearInventario() {
+    public static Inventario crearInventario() {
         Inventario inventario = new Inventario();
         inventario.setId(String.valueOf(inventario.hashCode()));
         inventario.setHerramientas(new ArrayList<>());

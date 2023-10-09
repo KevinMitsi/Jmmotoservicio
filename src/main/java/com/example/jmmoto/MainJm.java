@@ -26,17 +26,17 @@ public class MainJm extends Application {
             abrirCrearPrimerPropietario();
         }
         else{
-            Sede sede=domain.getFactorySedes().createSede("Jmmotoservicio","Cra 19 # 11 - 43","3108402499","jmmotoservicio92@gmail.com","7:00 a.m. - 12:00p.m. && 1:00p.m. - 5:3 p.m.", new Propietario());
-            inicializarLogin(sede);
+            inicializarLogin();
         }
+
     }
 
-    public void inicializarLogin(Sede sede) throws IOException {
+    public void inicializarLogin() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("loginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
         LoginViewController controller = fxmlLoader.getController();
-        controller.setMain(this, sede);
+        controller.setMain(this);
         stage.setTitle("Bienvenido a Jmmotoservicio");
         stage.setScene(scene);
         stage.show();
@@ -61,17 +61,25 @@ public class MainJm extends Application {
         launch();
     }
 
-    public void abrirRegister(String posibleUser, Sede sede) throws IOException {
+    public void abrirRegister(String posibleUser) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("registerView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
         RegisterViewController controller = fxmlLoader.getController();
-        controller.setMain(this, posibleUser,sede);
+        controller.setMain(this, posibleUser);
         stage.setTitle("Registro");
         stage.setScene(scene);
         stage.show();
     }
 
-    public void abrirPanelCliente(Cliente cliente, Sede sede) {
+    public void abrirPanelCliente(Cliente cliente) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("panelUsuarioView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
+        PanelUsuarioViewController controller = fxmlLoader.getController();
+        controller.setMain(this,cliente);
+        stage.setTitle("Registro");
+        stage.setScene(scene);
+        stage.show();
     }
 }

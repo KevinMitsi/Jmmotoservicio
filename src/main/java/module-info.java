@@ -27,6 +27,5 @@ module com.example.jmmoto {
     exports com.example.jmmoto.model.Rol;
     exports com.example.jmmoto.model.sede;
     exports com.example.jmmoto.model.cuenta;
-    exports com.example.jmmoto.model.Factorys.Interfaces;
 
 }

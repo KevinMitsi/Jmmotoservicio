@@ -3,11 +3,12 @@ package com.example.jmmoto.model.inventario;
 import com.example.jmmoto.model.herramienta.Herramienta;
 import com.example.jmmoto.model.productos.Producto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Inventario {
+public class Inventario implements Serializable{
     private String id;
     private List<Herramienta> herramientas;
     private List<Producto> productos;

@@ -1,6 +1,8 @@
 package com.example.jmmoto.controllers;
 
 import com.example.jmmoto.MainJm;
+import com.example.jmmoto.model.Factorys.FactoryCuenta;
+import com.example.jmmoto.model.Factorys.FactoryPersona;
 import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.sede.Sede;
@@ -25,7 +27,7 @@ import java.util.Properties;
 public class RegisterViewController {
     MainJm main;
     ModelFactoryController domai = ModelFactoryController.getInstance();
-    Sede sede;
+    Sede sede = domai.getSedes();
     String posibleUSer;
     public TextField tfNombre;
     public TextField tfApellido;
@@ -58,12 +60,14 @@ public class RegisterViewController {
         try{
             verificarCampos();
             enviarMensajeCorreo();
-            Image image = new Image(tfRutaArchivo.getText());
-            Cuenta cuenta=domai.getFactoryCuentas().createCuentaConFoto(tfUsuario.getText(),pfPassword.getText(),image);
+            Cuenta cuenta= FactoryCuenta.createCuenta(tfUsuario.getText(),pfPassword.getText());
+            cuenta.setUrlFoto(tfRutaArchivo.getText());
             cuenta.setEmail(tfEmail.getText());
-            Cliente cliente=domai.getFactoryPersonas().createCliente(tfNombre.getText(),tfApellido.getText(),tfCedula.getText(),String.valueOf(dpFecha.getValue()),cbGenero.getValue(),tfTelefono.getText(),tfEmail.getText(),cbEstadoCivil.getValue(),tfDireccion.getText(),cuenta);
+            Cliente cliente= FactoryPersona.createCliente(tfNombre.getText(),tfApellido.getText(),tfCedula.getText(),String.valueOf(dpFecha.getValue()),cbGenero.getValue(),tfTelefono.getText(),tfEmail.getText(),cbEstadoCivil.getValue(),tfDireccion.getText(),cuenta);
             sede.agregarCiente(cliente);
-            main.inicializarLogin(sede);
+            domai.guardarResourceXML();
+            domai.guardarResourceBinario();
+            main.inicializarLogin();
 
         } catch (Exception e) {
             Alerta.saltarAlertaError(e.getMessage());
@@ -79,8 +83,8 @@ public class RegisterViewController {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com"); // Cambia esto si estás usando otro proveedor de correo
-        props.put("mail.smtp.port", "587"); // Puerto del servidor de correo
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
 
         // Autenticación del emisor
         Session session = Session.getInstance(props, new Authenticator() {
@@ -96,7 +100,7 @@ public class RegisterViewController {
             message.setFrom(new InternetAddress(correoEmisor));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(correoReceptor));
             message.setSubject("Beinvenido/a a Jmmotoservicios"); // Asunto del correo
-            message.setText("Bienvenido a nuesra aplicación: "+tfNombre.getText()+" "+tfApellido.getText()+"\nes un placer para nosotros comentarte que te has registrado en nuestra apliación a las: " + LocalDate.now()); // Cuerpo del correo
+            message.setText("Bienvenido a nuesra aplicación: "+tfNombre.getText()+" "+tfApellido.getText()+"\nes un placer para nosotros comentarte que te has registrado en nuestra apliación el: " + LocalDate.now()); // Cuerpo del correo
 
             // Enviar el mensaje
             Transport.send(message);
@@ -169,10 +173,10 @@ public class RegisterViewController {
         }
     }
 
-    public void setMain(MainJm mainJm, String posibleUser, Sede sede) {
+    public void setMain(MainJm mainJm, String posibleUser) {
         this.main=mainJm;
         this.posibleUSer=posibleUser;
-        this.sede=sede;
+        tfUsuario.setText(posibleUser);
     }
     @FXML
     void initialize(){

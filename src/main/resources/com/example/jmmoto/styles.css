@@ -35,6 +35,51 @@
 #mainAnchorPane {
     -fx-background-color: #F4F4F4;
 }
+/* Estilos para la barra de navegación */
+.nav-bar {
+    -fx-background-color: #F4F4F4;
+    -fx-padding: 10px;
+}
+
+.nav-button {
+    -fx-background-color: #007BFF;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.nav-button:hover {
+    -fx-background-color: #0056b3;
+}
+
+/* Estilos para el contenido */
+#contentPane {
+    -fx-alignment: center;
+}
+
+.profile-image {
+    -fx-effect: dropshadow(gaussian, #000000, 10, 0, 0, 0);
+    -fx-clip-radius: 50;
+}
+
+/* Estilos para las publicaciones */
+.publication-pane {
+    -fx-background-color: #EDEDED;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-border-width: 1;
+    -fx-border-color: #CCCCCC;
+}
+
+.publication-image {
+    -fx-fit-width: 100;
+    -fx-fit-height: 100;
+}
+
+/* Estilos para el mensaje de Repuestos */
+.repuestos-pane {
+    -fx-padding: 20px;
+}
+
 
 
 
