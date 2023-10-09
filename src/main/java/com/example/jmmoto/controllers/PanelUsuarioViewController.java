@@ -26,7 +26,6 @@ public class PanelUsuarioViewController {
 
     @FXML
     private void initialize() {
-
     }
 
     @FXML

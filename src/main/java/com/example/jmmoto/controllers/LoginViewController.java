@@ -4,7 +4,7 @@ import com.example.jmmoto.MainJm;
 import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.sede.Sede;
-import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -18,8 +18,16 @@ public class LoginViewController {
     Sede sede = domain.getSedes();
     int numIntentosPermitidos=4;
 
+    @FXML
+    public void recuperarContrasena() {
+        if (usernameField.getText().isBlank()){
+            Alerta.saltarAlertaError("No hay ningún nombre");
+        }else {
 
-    public void registerButtonClick(ActionEvent actionEvent) throws IOException {
+        }
+    }
+    @FXML
+    public void registerButtonClick() throws IOException {
         if (usernameField!=null){
             main.abrirRegister(usernameField.getText());
         }
@@ -28,7 +36,8 @@ public class LoginViewController {
         }
     }
 
-    public void loginButtonAction(ActionEvent actionEvent) {
+    @FXML
+    public void loginButtonAction() {
         String user = usernameField.getText();
         String password = passwordField.getText();
         if (numIntentosPermitidos>0){
@@ -59,9 +68,6 @@ public class LoginViewController {
         this.main=mainJm;
     }
 
-    public void recuperarContrasena(ActionEvent actionEvent) {
-
-    }
     private boolean verificarDatos(String usuario, String password) {
         if (usuario.isBlank()){
             return false;
