@@ -78,7 +78,7 @@ public class MainJm extends Application {
         scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
         PanelUsuarioViewController controller = fxmlLoader.getController();
         controller.setMain(this,cliente);
-        stage.setTitle("Registro");
+        stage.setTitle("Panel cliente");
         stage.setScene(scene);
         stage.show();
     }

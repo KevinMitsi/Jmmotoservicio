@@ -20,7 +20,7 @@
          <string>Garcia</string>
         </void>
         <void property="cedula">
-         <string>1004</string>
+         <string>1004917999</string>
         </void>
         <void property="cuenta">
          <object class="com.example.jmmoto.model.cuenta.Cuenta" id="Cuenta0">
@@ -31,7 +31,7 @@
            <string>Berpi2003@</string>
           </void>
           <void property="urlFoto">
-           <string>C:\Users\Kevin\Desktop\Fotos_catálogo\IMG_20230425_163436.jpg</string>
+           <string>src/main/java/com/example/jmmoto/profilePhotos/trashhh.png</string>
           </void>
           <void property="usuario">
            <string>Kevinmitsi</string>
@@ -39,13 +39,13 @@
          </object>
         </void>
         <void property="direccion">
-         <string>asndah</string>
+         <string>Manzana 5 cs 5</string>
         </void>
         <void property="email">
          <string>kevina.garciaa@uqvirtual.edu.co</string>
         </void>
         <void property="estadoCivil">
-         <string>Casado/a</string>
+         <string>Union libre</string>
         </void>
         <void property="fechaNacimiento">
          <string>2003-08-24</string>
@@ -54,7 +54,7 @@
          <string>Masculino</string>
         </void>
         <void property="id">
-         <string>1298211273</string>
+         <string>1279362812</string>
         </void>
         <void property="motos">
          <object class="java.util.ArrayList"/>
@@ -63,7 +63,7 @@
          <string>Kevin</string>
         </void>
         <void property="numeroTelefono">
-         <string>319</string>
+         <string>3196635068</string>
         </void>
        </object>
       </void>
