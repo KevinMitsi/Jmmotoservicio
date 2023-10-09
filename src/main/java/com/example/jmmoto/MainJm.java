@@ -5,6 +5,7 @@ import com.example.jmmoto.model.Factorys.FactoryPersona;
 import com.example.jmmoto.model.Factorys.FactorySede;
 import com.example.jmmoto.model.Factorys.InventarioCreator;
 import com.example.jmmoto.model.Taller;
+import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.persona.Propietario;
 import com.example.jmmoto.model.sede.Sede;
@@ -77,6 +78,17 @@ public class MainJm extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
         PanelUsuarioViewController controller = fxmlLoader.getController();
+        controller.setMain(this,cliente);
+        stage.setTitle("Panel cliente");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirRecuperarContrasena(MainJm main, Cliente cliente) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("recuperarContrasenaView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(MainJm.class.getResource("styles.css").toExternalForm());
+        RecuperarContrasenaViewController controller = fxmlLoader.getController();
         controller.setMain(this,cliente);
         stage.setTitle("Panel cliente");
         stage.setScene(scene);

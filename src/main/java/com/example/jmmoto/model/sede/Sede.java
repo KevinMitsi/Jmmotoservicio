@@ -267,4 +267,17 @@ public class Sede implements Serializable {
         }
         return false;
     }
+
+    public Cuenta intentarRecuperar(String text) {
+        Cuenta cuenta = null;
+        for (Cuenta cuent:cuentas) {
+            if (cuent.getUsuario().equals(text)){
+                cuenta=cuent;
+            }
+        }
+        if (cuenta==null){
+            throw new NullPointerException("Usuario no encontrado");
+        }
+        return cuenta;
+    }
 }
