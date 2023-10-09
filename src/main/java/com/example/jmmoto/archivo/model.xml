@@ -1,44 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="19.0.2" class="java.beans.XMLDecoder">
  <object class="com.example.jmmoto.model.Taller">
-  <void property="citaFactory">
-   <object class="com.example.jmmoto.model.Factorys.FactoryCita"/>
-  </void>
-  <void property="cuentaFactory">
-   <object class="com.example.jmmoto.model.Factorys.FactoryCuenta"/>
-  </void>
-  <void property="factoryPersona">
-   <object class="com.example.jmmoto.model.Factorys.FactoryPersona"/>
-  </void>
-  <void property="factoryProcedimiento">
-   <object class="com.example.jmmoto.model.Factorys.FactoryProcedimiento"/>
-  </void>
-  <void property="factoryProducto">
-   <object class="com.example.jmmoto.model.Factorys.FactoryProducto"/>
-  </void>
-  <void property="factoryRedSocial">
-   <object class="com.example.jmmoto.model.Factorys.FactoryRedSocial"/>
-  </void>
-  <void property="factoryRol">
-   <object class="com.example.jmmoto.model.Factorys.FactoryRol"/>
-  </void>
-  <void property="factorySede">
-   <object class="com.example.jmmoto.model.Factorys.FactorySede"/>
-  </void>
-  <void property="facturaFactory">
-   <object class="com.example.jmmoto.model.Factorys.FactoryFactura"/>
-  </void>
-  <void property="herramientaFactory">
-   <object class="com.example.jmmoto.model.Factorys.FactoryHerramienta"/>
-  </void>
-  <void property="inventarioCreatorFactory">
-   <object class="com.example.jmmoto.model.Factorys.InventarioCreator"/>
-  </void>
-  <void property="marcaMotoFactory">
-   <object class="com.example.jmmoto.model.Factorys.FactoryMarca"/>
-  </void>
-  <void property="motoFactory">
-   <object class="com.example.jmmoto.model.Factorys.FactoryMoto"/>
+  <void property="sedes">
+   <object class="com.example.jmmoto.model.sede.Sede">
+    <void property="adminRedesSocs">
+     <object class="java.util.ArrayList"/>
+    </void>
+    <void property="analistas">
+     <object class="java.util.ArrayList"/>
+    </void>
+    <void property="citas">
+     <object class="java.util.ArrayList"/>
+    </void>
+    <void property="clientes">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="com.example.jmmoto.model.persona.Cliente" id="Cliente0">
+        <void property="apellido">
+         <string>Garcia</string>
+        </void>
+        <void property="cedula">
+         <string>1004</string>
+        </void>
+        <void property="cuenta">
+         <object class="com.example.jmmoto.model.cuenta.Cuenta" id="Cuenta0">
+          <void property="email">
+           <string>kevina.garciaa@uqvirtual.edu.co</string>
+          </void>
+          <void property="password">
+           <string>Berpi2003@</string>
+          </void>
+          <void property="urlFoto">
+           <string>C:\Users\Kevin\Desktop\Fotos_catálogo\IMG_20230425_163436.jpg</string>
+          </void>
+          <void property="usuario">
+           <string>Kevinmitsi</string>
+          </void>
+         </object>
+        </void>
+        <void property="direccion">
+         <string>asndah</string>
+        </void>
+        <void property="email">
+         <string>kevina.garciaa@uqvirtual.edu.co</string>
+        </void>
+        <void property="estadoCivil">
+         <string>Casado/a</string>
+        </void>
+        <void property="fechaNacimiento">
+         <string>2003-08-24</string>
+        </void>
+        <void property="genero">
+         <string>Masculino</string>
+        </void>
+        <void property="id">
+         <string>1298211273</string>
+        </void>
+        <void property="motos">
+         <object class="java.util.ArrayList"/>
+        </void>
+        <void property="nombre">
+         <string>Kevin</string>
+        </void>
+        <void property="numeroTelefono">
+         <string>319</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="cuentas">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object idref="Cuenta0"/>
+      </void>
+     </object>
+    </void>
+    <void property="direccion">
+     <string>cra 19 # 11-43</string>
+    </void>
+    <void property="email">
+     <string>jmmotoservicio92@gmail.com</string>
+    </void>
+    <void property="facturas">
+     <object class="java.util.LinkedList"/>
+    </void>
+    <void property="horario">
+     <string>horario</string>
+    </void>
+    <void property="id">
+     <string>29791</string>
+    </void>
+    <void property="inventario">
+     <object class="com.example.jmmoto.model.inventario.Inventario"/>
+    </void>
+    <void property="motos">
+     <object class="java.util.ArrayList"/>
+    </void>
+    <void property="nombre">
+     <string>Jmmotoservicio</string>
+    </void>
+    <void property="personas">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object idref="Cliente0"/>
+      </void>
+     </object>
+    </void>
+    <void property="procedimientos">
+     <object class="java.util.ArrayList"/>
+    </void>
+    <void property="propietario">
+     <object class="com.example.jmmoto.model.persona.Propietario"/>
+    </void>
+    <void property="recepcionistas">
+     <object class="java.util.ArrayList"/>
+    </void>
+    <void property="tecnicos">
+     <object class="java.util.ArrayList"/>
+    </void>
+    <void property="telefono">
+     <string>310</string>
+    </void>
+   </object>
   </void>
  </object>
 </java>

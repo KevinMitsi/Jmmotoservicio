@@ -10,6 +10,7 @@ public class Cuenta implements Serializable {
     private String password;
     private String email;
     private Image foto;
+    private String urlFoto;
 
     public Cuenta(String usuario, String password) {
         this.usuario = usuario;
@@ -57,11 +58,19 @@ public class Cuenta implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Cuenta cuenta)) return false;
-        return getUsuario().equals(cuenta.getUsuario());
+        return Objects.equals(getUsuario(), cuenta.getUsuario()) && Objects.equals(getPassword(), cuenta.getPassword());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUsuario());
+        return Objects.hash(getUsuario(), getPassword());
+    }
+
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
     }
 }

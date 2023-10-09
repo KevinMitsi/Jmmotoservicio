@@ -61,4 +61,14 @@ public class Cliente extends Persona implements Serializable {
     public int hashCode() {
         return Objects.hash(super.hashCode(), getDireccion(), getCuenta());
     }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
 }

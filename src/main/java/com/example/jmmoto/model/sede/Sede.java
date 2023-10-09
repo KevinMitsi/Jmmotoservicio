@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Sede implements Serializable {
+
     private String id;
     private String nombre;
     private String direccion;
@@ -53,7 +54,12 @@ public class Sede implements Serializable {
         this.clientes=new ArrayList<>();
         this.citas=new ArrayList<>();
         this.cuentas=new ArrayList<>();
-        this.personas=agregarPeronas();
+        this.personas=new ArrayList<>();
+        this.personas = agregarPeronas();
+    }
+
+    public Sede(){
+
     }
 
     private List<Persona> agregarPeronas() {
@@ -207,6 +213,14 @@ public class Sede implements Serializable {
     }
     public void setCitas(List<Cita> citas) {
         this.citas = citas;
+    }
+
+    public List<Persona> getPersonas() {
+        return personas;
+    }
+
+    public void setPersonas(List<Persona> personas) {
+        this.personas = personas;
     }
 
     @Override

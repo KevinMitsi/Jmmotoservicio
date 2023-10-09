@@ -3,60 +3,32 @@ package com.example.jmmoto.controllers;
 import com.example.jmmoto.MainJm;
 import com.example.jmmoto.model.Factorys.*;
 import com.example.jmmoto.model.Taller;
+import com.example.jmmoto.model.persona.Propietario;
+import com.example.jmmoto.model.sede.Sede;
 import com.example.jmmoto.persistencia.Persistencia;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ModelFactoryController {
     Taller taller;
     MainJm main;
 
     //Funciones del Domain
-    public FactoryCita getFactoryCitas(){
-        return taller.getCitaFactory();
-    }
-    public FactoryCuenta getFactoryCuentas(){
-        return taller.getCuentaFactory();
-    }
-    public FactoryFactura getFactoryFacturas(){
-        return taller.getFacturaFactory();
-    }
-    public FactoryHerramienta getFactoryHerramientas(){
-        return taller.getHerramientaFactory();
-    }
-    public FactoryMarca getFactoryMarcas(){
-        return taller.getMarcaMotoFactory();
-    }
-    public FactoryMoto getFactoryMotos(){
-        return taller.getMotoFactory();
-    }
-    public FactoryPersona getFactoryPersonas(){
-        return taller.getFactoryPersona();
-    }
-    public FactoryProcedimiento getFactoryProcedimientos(){
-        return taller.getFactoryProcedimiento();
-    }
-    public FactoryProducto getFactoryProductos(){
-        return taller.getFactoryProducto();
-    }
-    public FactoryRedSocial getFactoryRedSocial(){
-        return taller.getFactoryRedSocial();
-    }
-    public FactoryRol getFactoryRoles(){
-        return taller.getFactoryRol();
-    }
-    public FactorySede getFactorySedes(){
-        return taller.getFactorySede();
-    }
-    public InventarioCreator getInventario(){
-        return taller.getInventarioCreatorFactory();
-    }
+
     public boolean isNew(){
         return taller.isNew();
     }
     public void setNew(boolean value){
         taller.setNew(value);
     }
+
+    public Sede getSedes() {
+        return taller.getSedes();
+    }
+
     //------------------------------  Singleton ------------------------------------------------
     // Clase estatica oculta. Tan solo se instanciara el singleton una vez
     private static class SingletonHolder {
@@ -79,16 +51,15 @@ public class ModelFactoryController {
 
     public ModelFactoryController() throws IOException {
         //Siempre se debe verificar si la raiz del recurso es null
+        guardarResourceBinario();
+        cargarResourceXML();
+
         if(taller == null)
         {
             System.out.println("es null");
             inicializarDatos();
             guardarResourceXML();
             guardarResourceBinario();
-        }
-        else{
-            guardarResourceBinario();
-            cargarResourceXML();
         }
 
 
@@ -120,20 +91,8 @@ public class ModelFactoryController {
 
     private void inicializarDatos() throws IOException {
         taller = new Taller();
-        taller.setCitaFactory(new FactoryCita());
-        taller.setCuentaFactory(new FactoryCuenta());
-        taller.setFacturaFactory(new FactoryFactura());
-        taller.setHerramientaFactory(new FactoryHerramienta());
-        taller.setMarcaMotoFactory(new FactoryMarca());
-        taller.setMotoFactory(new FactoryMoto());
-        taller.setFactoryPersona(new FactoryPersona());
-        taller.setFactoryProcedimiento(new FactoryProcedimiento());
-        taller.setFactoryProducto(new FactoryProducto());
-        taller.setFactoryRedSocial(new FactoryRedSocial());
-        taller.setFactoryRol(new FactoryRol());
-        taller.setFactorySede(new FactorySede());
-        taller.setInventarioCreatorFactory(new InventarioCreator());
         taller.setNew(false);
+        taller.setSedes(FactorySede.createSede("Jmmotoservicio","cra 19 # 11-43","310","jmmotoservicio92@gmail.com","horario",new Propietario()));
         System.out.println("Domain inicializado "+ taller);
     }
 
