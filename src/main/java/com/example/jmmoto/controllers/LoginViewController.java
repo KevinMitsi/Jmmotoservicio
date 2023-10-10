@@ -59,7 +59,8 @@ public class LoginViewController {
                 Cuenta cuenta = new Cuenta(user, password);
                 if (cuenta.getPassword().equals(codigoRecuperacion)){
                     Cliente cliente =sede.retornarClienteAsociado(cuenta);
-                    main.abrirRecuperarContrasena(main,cliente);
+                    main.abrirRecuperarContrasena(cliente);
+                    codigoRecuperacion=null;
                 }
                 else {
                     try{

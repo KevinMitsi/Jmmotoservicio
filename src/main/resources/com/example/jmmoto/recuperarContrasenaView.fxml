@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="202.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.RecuperarContrasenaViewController">
+<AnchorPane prefHeight="202.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.RecuperarContrasenaViewController">
     <children>
         <Label layoutX="118.0" layoutY="29.0" text="Recuperar contraseña" textAlignment="CENTER" textFill="#1a47ff">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="tfPassword" styleClass="rounded-textfield" layoutX="135.0" layoutY="122.0" promptText="Nueva  contraseña" />
-        <Button layoutX="179.0" layoutY="162.0" styleClass="login-button" mnemonicParsing="false" onAction="#onCambiarButtonClick" text="Cambiar" />
-        <Hyperlink fx:id="hlRegresar" layoutY="3.0" onAction="#onRegresarLink"  styleClass="forgot-password-link" text="Regresar">
+        <TextField fx:id="tfPassword" layoutX="135.0" layoutY="122.0" promptText="Nueva  contraseña" styleClass="rounded-textfield" />
+        <Button layoutX="179.0" layoutY="162.0" mnemonicParsing="false" onAction="#onCambiarButtonClick" styleClass="login-button" text="Cambiar" />
+        <Hyperlink fx:id="hlRegresar" layoutY="3.0" onAction="#onRegresarLink" styleClass="forgot-password-link" text="Regresar">
             <font>
                 <Font name="System Italic" size="12.0" />
             </font>
         </Hyperlink>
-        <Label fx:id="lblText" layoutX="196.0" layoutY="72.0" text="Label" />
+        <Label fx:id="lblText" layoutX="195.0" layoutY="76.0" text="Label" textAlignment="CENTER" />
     </children>
 </AnchorPane>

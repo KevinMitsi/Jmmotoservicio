@@ -76,6 +76,13 @@ public class PanelUsuarioViewController {
 
         Button assignButton = new Button("Asignar cita");
         assignButton.getStyleClass().add("login-button"); // Aplicar estilo al botón
+        assignButton.setOnAction(event ->{
+            try {
+                main.abrirAmpliacionServicio(clienteLogeado,titulo);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
         // Crear el panel de la publicación
         VBox publicationPane = new VBox(imageView, titleLabel, descriptionLabel, assignButton);
@@ -111,8 +118,6 @@ public class PanelUsuarioViewController {
 
     private void ponerImg(Cliente clienteLogeado) {
         String urlFoto = clienteLogeado.getCuenta().getUrlFoto();
-        System.out.println("URL de la imagen: " + urlFoto); // Agrega esta línea para depuración
-
         if (urlFoto != null) {
             File file = new File(urlFoto);
             if (file.exists()) {
