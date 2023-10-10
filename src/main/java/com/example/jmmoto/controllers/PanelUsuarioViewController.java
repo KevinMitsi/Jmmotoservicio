@@ -8,8 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -29,7 +27,7 @@ public class PanelUsuarioViewController {
     }
 
     @FXML
-    public void onProfileImgClick(MouseEvent mouseEvent) throws IOException {
+    public void onProfileImgClick() throws IOException {
         main.inicializarLogin();
     }
     @FXML
@@ -39,22 +37,22 @@ public class PanelUsuarioViewController {
         // Ejemplo de cómo crear una publicación personalizada
         String imagenPath1 = "/com/example/jmmoto/kilometraje.png";
         String titulo1 = "Revisión de Kilometraje";
-        String descripcion1 = "Descripción personalizada 1";
+        String descripcion1 = "Revisiones de Kilometraje en motos en Garantía de marca o revisiones fuera de garantía";
         VBox publicationPane1 = crearPublicacion(imagenPath1, titulo1, descripcion1);
         contentPane.getChildren().add(publicationPane1);
         String imagenPath2 = "/com/example/jmmoto/mantnimiento.png";
         String titulo2 = "Mantenimiento";
-        String descripcion2 = "Descripción personalizada 1";
+        String descripcion2 = "Revisión más completa y específica para mantener tu moto preventivamente en su mejor estado";
         VBox publicationPane2 = crearPublicacion(imagenPath2, titulo2, descripcion2);
         contentPane.getChildren().add(publicationPane2);
         String imagenPath3 = "/com/example/jmmoto/peritaje.png";
         String titulo3 = "Peritaje";
-        String descripcion3 = "Descripción personalizada 1";
+        String descripcion3 = "Servicio para calculo de precios de la motocicleta y terminos legales";
         VBox publicationPane3 = crearPublicacion(imagenPath3, titulo3, descripcion3);
         contentPane.getChildren().add(publicationPane3);
         String imagenPath4 = "/com/example/jmmoto/serviciosRapidos.png";
-        String titulo4 = "Revisión de Kilometraje";
-        String descripcion4 = "Descripción personalizada 1";
+        String titulo4 = "Servicios Rapidos";
+        String descripcion4 = "Servicios básicos y que no necesitan mucho tiempo";
         VBox publicationPane4 = crearPublicacion(imagenPath4, titulo4, descripcion4);
         contentPane.getChildren().add(publicationPane4);
 
@@ -78,7 +76,18 @@ public class PanelUsuarioViewController {
         assignButton.getStyleClass().add("login-button"); // Aplicar estilo al botón
         assignButton.setOnAction(event ->{
             try {
-                main.abrirAmpliacionServicio(clienteLogeado,titulo);
+               if(titulo.equals("Revisión de Kilometraje")){
+                   main.abrirAmpliacionServicioRevision(clienteLogeado);
+               }
+                if(titulo.equals("Mantenimiento")){
+                    main.abrirAmpliacionServicioMantenimiento(clienteLogeado);
+                }
+                if(titulo.equals("Peritaje")){
+                    main.abrirAmpliacionServicioPeritaje(clienteLogeado);
+                }
+                if(titulo.equals("Servicios Rapidos")){
+                    main.abrirAmpliacionServicioRapido(clienteLogeado);
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

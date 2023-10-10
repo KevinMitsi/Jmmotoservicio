@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="301.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.AmpliarRevisionViewController">
+    <Label layoutX="50.0" layoutY="50.0" />
+    <Label layoutX="50.0" layoutY="100.0" />
+    <Button layoutX="188.0" layoutY="246.0" onAction="#agendarButtonClick" styleClass="login-button" text="Agendar Cita" />
+    <Label layoutX="107.0" layoutY="9.0" text="Revisión de Kilometraje" textFill="#4573ff">
+        <font>
+            <Font name="System Bold" size="23.0" />
+        </font>
+    </Label>
+    <TextArea fx:id="areaDescripcion" editable="false" layoutX="14.0" layoutY="59.0" prefHeight="156.0" prefWidth="442.0" visible="false" wrapText="true" />
+    <Hyperlink layoutX="6.0" layoutY="2.0" onAction="#onRegresarClick" text="Regresar">
+        <font>
+            <Font name="System Italic" size="12.0" />
+        </font>
+    </Hyperlink>
+
+</AnchorPane>
