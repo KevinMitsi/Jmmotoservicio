@@ -89,7 +89,7 @@ public class RegisterViewController {
     private void enviarMensajeCorreo() throws Exception {
         // Configuración del servidor de correo electrónico
         String correoEmisor = "kegarrapala.2003@gmail.com"; // Dirección de correo del emisor
-        String contrasena = "vjlxcltitkrpobbh"; // Contraseña del correo del emisor
+        String contrasena = ""; // Contraseña del correo del emisor
         String correoReceptor = tfEmail.getText(); // Dirección de correo del receptor
 
         Properties props = new Properties();
