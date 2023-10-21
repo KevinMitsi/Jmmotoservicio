@@ -67,12 +67,68 @@
         </void>
        </object>
       </void>
+      <void method="add">
+       <object class="com.example.jmmoto.model.persona.Cliente" id="Cliente1">
+        <void property="apellido">
+         <string>Rivera</string>
+        </void>
+        <void property="cedula">
+         <string>109348382</string>
+        </void>
+        <void property="cuenta">
+         <object class="com.example.jmmoto.model.cuenta.Cuenta" id="Cuenta1">
+          <void property="email">
+           <string>ryrivera@uniquindio.edu.co</string>
+          </void>
+          <void property="password">
+           <string>An@1234</string>
+          </void>
+          <void property="urlFoto">
+           <string>src/main/java/com/example/jmmoto/profilePhotos/WhatsApp Image 2023-04-11 at 12.05.41 PM.jpeg</string>
+          </void>
+          <void property="usuario">
+           <string>Raul</string>
+          </void>
+         </object>
+        </void>
+        <void property="direccion">
+         <string>asdaijsiu</string>
+        </void>
+        <void property="email">
+         <string>ryrivera@uniquindio.edu.co</string>
+        </void>
+        <void property="estadoCivil">
+         <string>Casado/a</string>
+        </void>
+        <void property="fechaNacimiento">
+         <string>2000-05-29</string>
+        </void>
+        <void property="genero">
+         <string>Masculino</string>
+        </void>
+        <void property="id">
+         <string>-2114809411</string>
+        </void>
+        <void property="motos">
+         <object class="java.util.ArrayList"/>
+        </void>
+        <void property="nombre">
+         <string>Raul</string>
+        </void>
+        <void property="numeroTelefono">
+         <string>123821837289</string>
+        </void>
+       </object>
+      </void>
      </object>
     </void>
     <void property="cuentas">
      <object class="java.util.ArrayList">
       <void method="add">
        <object idref="Cuenta0"/>
+      </void>
+      <void method="add">
+       <object idref="Cuenta1"/>
       </void>
      </object>
     </void>
@@ -104,6 +160,9 @@
      <object class="java.util.ArrayList">
       <void method="add">
        <object idref="Cliente0"/>
+      </void>
+      <void method="add">
+       <object idref="Cliente1"/>
       </void>
      </object>
     </void>

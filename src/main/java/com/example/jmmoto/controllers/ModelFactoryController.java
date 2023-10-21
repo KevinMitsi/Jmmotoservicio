@@ -14,7 +14,6 @@ import java.util.List;
 
 public class ModelFactoryController {
     Taller taller;
-    MainJm main;
 
     //Funciones del Domain
 
@@ -34,7 +33,6 @@ public class ModelFactoryController {
     private static class SingletonHolder {
         // El constructor de Singleton puede ser llamado desde aqu� al ser protected
         private final static ModelFactoryController eINSTANCE;
-
         static {
             try {
                 eINSTANCE = new ModelFactoryController();
@@ -44,7 +42,7 @@ public class ModelFactoryController {
         }
     }
 
-    // M�todo para obtener la instancia de nuestra clase
+    // Metodo para obtener la instancia de nuestra clase
     public static ModelFactoryController getInstance() {
         return SingletonHolder.eINSTANCE;
     }
@@ -86,8 +84,6 @@ public class ModelFactoryController {
 
         Persistencia.guardarRecursoDomainXML(taller);
     }
-
-
 
     private void inicializarDatos() throws IOException {
         taller = new Taller();
