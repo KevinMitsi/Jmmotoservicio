@@ -66,7 +66,7 @@ public class LoginViewController {
                     try{
                         Cliente cliente =sede.retornarClienteAsociado(cuenta);
                         enviarMensajeCorreoSeguro(cliente.getCuenta());
-                        main.abrirInicioSeguro(cliente,)
+                        main.abrirInicioSeguro(cliente,codigoSeguridad);
                         main.abrirPanelCliente(cliente);
                     } catch (Exception e) {
                         Alerta.saltarAlertaError(e.getMessage());
