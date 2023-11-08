@@ -4,6 +4,7 @@ import com.example.jmmoto.MainJm;
 import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.sede.Sede;
+import com.example.jmmoto.threads.EmailThread;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -22,6 +23,7 @@ public class LoginViewController {
     ModelFactoryController domain = ModelFactoryController.getInstance();
     Sede sede = domain.getSedes();
     private String codigoRecuperacion;
+    private String codigoSeguridad;
     int numIntentosPermitidos=4;
 
     @FXML
@@ -30,13 +32,11 @@ public class LoginViewController {
             Alerta.saltarAlertaError("No hay ningún nombre");
         }else {
             try{
-               Cuenta cuenta=sede.intentarRecuperar(usernameField.getText());
+                Cuenta cuenta=sede.intentarRecuperar(usernameField.getText());
                 enviarMensajeCorreo(cuenta);
                 cuenta.setPassword(codigoRecuperacion);
-            }catch (NullPointerException e){
-                Alerta.saltarAlertaError(e.getMessage());
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                Alerta.saltarAlertaError(e.getMessage());
             }
         }
     }
@@ -65,6 +65,8 @@ public class LoginViewController {
                 else {
                     try{
                         Cliente cliente =sede.retornarClienteAsociado(cuenta);
+                        enviarMensajeCorreoSeguro(cliente.getCuenta());
+                        main.abrirInicioSeguro(cliente,codigoSeguridad);
                         main.abrirPanelCliente(cliente);
                     } catch (Exception e) {
                         Alerta.saltarAlertaError(e.getMessage());
@@ -85,57 +87,29 @@ public class LoginViewController {
         }
     }
 
+    private void enviarMensajeCorreoSeguro(Cuenta cuenta) {
+        codigoSeguridad = String.valueOf((int) (Math.random() * 999));
+        EmailThread emailThread = new EmailThread("Código de seguridad","Hola usario : "+cuenta.getUsuario()+" "+"\nHemos recibido una solitud de inicisio de sesion el: " + LocalDate.now()+"\nPara poder ingresar debes colocar el siguiente código en el campos de la aplicación: " + codigoSeguridad,cuenta.getEmail());
+        emailThread.start();
+        while (emailThread.isRunning()){
+            Alerta.saltarAlertaInformacion("Se está enviando correo electrónico");
+        }
+    }
+
 
     public void setMain(MainJm mainJm) {
         this.main=mainJm;
     }
 
     private boolean verificarDatos(String usuario, String password) {
-        if (usuario.isBlank()){
-            return false;
-        }
-        if (password.isBlank()){
-            return false;
-        }
-        return true;
+        return !usuario.isBlank()&&!password.isBlank();
     }
     private void enviarMensajeCorreo(Cuenta cuenta) throws Exception {
-        // Configuración del servidor de correo electrónico
-        String correoEmisor = "kegarrapala.2003@gmail.com"; // Dirección de correo del emisor
-        String contrasena = "vjlxcltitkrpobbh"; // Contraseña del correo del emisor
-        String correoReceptor = cuenta.getEmail(); // Dirección de correo del receptor
         codigoRecuperacion = String.valueOf((int) (Math.random() * 999));
-
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-
-        // Autenticación del emisor
-        Session session = Session.getInstance(props, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(correoEmisor, contrasena);
-            }
-        });
-
-        try {
-            // Crear un objeto de mensaje MimeMessage
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(correoEmisor));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(correoReceptor));
-            message.setSubject("Solicitud de cambio de contraseña"); // Asunto del correo
-            message.setText("Hola usario : "+cuenta.getUsuario()+" "+"\nHemos recibido una solitud de cambio de contraseña el: " + LocalDate.now()+"\nPara cambiar tu constraseña debes colocar el siguiente código como tu clave de aplicación: " + codigoRecuperacion); // Cuerpo del correo
-
-            // Enviar el mensaje
-            Transport.send(message);
-
-            // Mensaje enviado con éxito
-            Alerta.saltarAlertaConfirmacion("Correo enviado con éxito.");
-        } catch (MessagingException e) {
-            // Error al enviar el correo
-            throw new Exception("Error al enviar el correo: " + e.getMessage());
+        EmailThread emailThread = new EmailThread("Solicitud de cambio de contraseña","Hola usario : "+cuenta.getUsuario()+" "+"\nHemos recibido una solitud de cambio de contraseña el: " + LocalDate.now()+"\nPara cambiar tu constraseña debes colocar el siguiente código como tu clave de aplicación: " + codigoRecuperacion,cuenta.getEmail());
+        emailThread.start();
+        while (emailThread.isRunning()){
+            Alerta.saltarAlertaInformacion("Se está enviando correo electrónico");
         }
     }
 }

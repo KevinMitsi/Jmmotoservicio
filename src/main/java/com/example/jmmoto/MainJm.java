@@ -129,4 +129,7 @@ public class MainJm extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void abrirInicioSeguro(Cliente cliente, String codigoSeguridad) {
+    }
 }

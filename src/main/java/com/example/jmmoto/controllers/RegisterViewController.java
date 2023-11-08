@@ -6,28 +6,20 @@ import com.example.jmmoto.model.Factorys.FactoryPersona;
 import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.sede.Sede;
+import com.example.jmmoto.threads.EmailThread;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
-
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
-import java.util.Properties;
-
 
 public class RegisterViewController {
     MainJm main;
@@ -86,44 +78,15 @@ public class RegisterViewController {
         }
     }
 
-    private void enviarMensajeCorreo() throws Exception {
-        // Configuración del servidor de correo electrónico
-        String correoEmisor = "kegarrapala.2003@gmail.com"; // Dirección de correo del emisor
-        String contrasena = ""; // Contraseña del correo del emisor
-        String correoReceptor = tfEmail.getText(); // Dirección de correo del receptor
-
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-
-        // Autenticación del emisor
-        Session session = Session.getInstance(props, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(correoEmisor, contrasena);
-            }
-        });
-
-        try {
-            // Crear un objeto de mensaje MimeMessage
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(correoEmisor));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(correoReceptor));
-            message.setSubject("Beinvenido/a a Jmmotoservicios"); // Asunto del correo
-            message.setText("Bienvenido a nuesra aplicación: "+tfNombre.getText()+" "+tfApellido.getText()+"\nes un placer para nosotros comentarte que te has registrado en nuestra apliación el: " + LocalDate.now()); // Cuerpo del correo
-
-            // Enviar el mensaje
-            Transport.send(message);
-
-            // Mensaje enviado con éxito
-            Alerta.saltarAlertaConfirmacion("Correo enviado con éxito.");
-        } catch (MessagingException e) {
-            // Error al enviar el correo
-            throw new Exception("Error al enviar el correo: " + e.getMessage());
+private void enviarMensajeCorreo() throws Exception {
+        EmailThread emailThread = new EmailThread("Bienvenido/a a Jmmotoservicios", "Bienvenido a nuestra aplicación: " + tfNombre.getText() + " " + tfApellido.getText() + "\nEs un placer para nosotros comentarte que te has registrado en nuestra aplicación el: " + LocalDate.now(), tfEmail.getText());
+        emailThread.start();
+        while (emailThread.isRunning()) {
+            Alerta.saltarAlertaInformacion("Enviando correo");
         }
     }
+
+
 
     private void verificarCampos() throws Exception {
         if (tfNombre.getText().isBlank()){
