@@ -6,20 +6,21 @@ import java.util.Objects;
 public class Herramienta implements Serializable {
     private String id;
     private String numeroSerie;
+    private String nombre;
     private String tipo;
     private String marca;
     private String estado;
     private String fechaAdquisicion;
     private boolean disponibilidad;
 
-    public Herramienta(String numeroSerie, String tipo, String marca, String estado, String fechaAdquisicion, boolean disponibilidad) {
-        this.id = String.valueOf(Objects.hash(getNumeroSerie()));
+    public Herramienta(String numeroSerie, String nombre,String tipo, String marca, String estado, String fechaAdquisicion, boolean disponibilidad) {
         this.numeroSerie = numeroSerie;
         this.tipo = tipo;
         this.marca = marca;
         this.estado = estado;
         this.fechaAdquisicion = fechaAdquisicion;
         this.disponibilidad = disponibilidad;
+        this.id = String.valueOf(Objects.hash(getNumeroSerie()));
     }
 
     public String getId() {
@@ -76,6 +77,14 @@ public class Herramienta implements Serializable {
 
     public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     @Override
