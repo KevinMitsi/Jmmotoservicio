@@ -78,14 +78,14 @@ public class RegisterViewController {
         }
     }
 
-    private void enviarMensajeCorreo() {
-        EmailThread emailThread = new EmailThread("Bienvenido/a a Jmmotoservicios", "Bienvenido a nuestra aplicación: " + tfNombre.getText() + " " + tfApellido.getText() + "\nEs un placer para nosotros comentarte que te has registrado en nuestra aplicación el: " + LocalDate.now(),tfEmail.getText());
+private void enviarMensajeCorreo() throws Exception {
+        EmailThread emailThread = new EmailThread("Bienvenido/a a Jmmotoservicios", "Bienvenido a nuestra aplicación: " + tfNombre.getText() + " " + tfApellido.getText() + "\nEs un placer para nosotros comentarte que te has registrado en nuestra aplicación el: " + LocalDate.now(), tfEmail.getText());
         emailThread.start();
-        while (emailThread.isRunning()){
+        while (emailThread.isRunning()) {
             Alerta.saltarAlertaInformacion("Enviando correo");
         }
-
     }
+
 
 
     private void verificarCampos() throws Exception {
