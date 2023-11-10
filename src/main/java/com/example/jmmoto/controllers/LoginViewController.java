@@ -24,6 +24,7 @@ public class LoginViewController {
     Sede sede = domain.getSedes();
     private String codigoRecuperacion;
     private String codigoSeguridad;
+    private final String productKey = "ADJMMOTOSERVICIO29";
     int numIntentosPermitidos=4;
 
     @FXML
@@ -55,6 +56,9 @@ public class LoginViewController {
         String user = usernameField.getText();
         String password = passwordField.getText();
         if (numIntentosPermitidos>0){
+            if (usernameField.getText().equals("admin")&&passwordField.getText().equals("admin123")){
+                main.abrirIntentoAdmin(productKey);
+            }
             if (verificarDatos(user,password)){
                 Cuenta cuenta = new Cuenta(user, password);
                 if (cuenta.getPassword().equals(codigoRecuperacion)){
@@ -67,8 +71,7 @@ public class LoginViewController {
                         Cliente cliente =sede.retornarClienteAsociado(cuenta);
                         enviarMensajeCorreoSeguro(cliente.getCuenta());
                         main.abrirInicioSeguro(cliente,codigoSeguridad);
-                        main.abrirPanelCliente(cliente);
-                    } catch (Exception e) {
+                        } catch (Exception e) {
                         Alerta.saltarAlertaError(e.getMessage());
                         numIntentosPermitidos--;
                         if (numIntentosPermitidos<=2){
@@ -89,7 +92,7 @@ public class LoginViewController {
 
     private void enviarMensajeCorreoSeguro(Cuenta cuenta) {
         codigoSeguridad = String.valueOf((int) (Math.random() * 999));
-        EmailThread emailThread = new EmailThread("Código de seguridad","Hola usario : "+cuenta.getUsuario()+" "+"\nHemos recibido una solitud de inicisio de sesion el: " + LocalDate.now()+"\nPara poder ingresar debes colocar el siguiente código en el campos de la aplicación: " + codigoSeguridad,cuenta.getEmail());
+        EmailThread emailThread = new EmailThread("Código de seguridad","Hola usario : "+cuenta.getUsuario()+" "+"\nHemos recibido una solitud de inicio de sesion el: " + LocalDate.now()+"\nPara poder ingresar debes colocar el siguiente código en el campos de la aplicación: " + codigoSeguridad,cuenta.getEmail());
         emailThread.start();
         while (emailThread.isRunning()){
             Alerta.saltarAlertaInformacion("Se está enviando correo electrónico");

@@ -2,6 +2,7 @@ package com.example.jmmoto.model.inventario;
 
 import com.example.jmmoto.model.herramienta.Herramienta;
 import com.example.jmmoto.model.productos.Producto;
+import com.example.jmmoto.model.productos.Repuesto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.Objects;
 public class Inventario implements Serializable{
     private String id;
     private List<Herramienta> herramientas;
-    private List<Producto> productos;
+    private List<Repuesto> productos;
 
     public Inventario() {
         this.id = String.valueOf(hashCode());
@@ -35,11 +36,11 @@ public class Inventario implements Serializable{
         this.herramientas = herramientas;
     }
 
-    public List<Producto> getProductos() {
+    public List<Repuesto> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Producto> productos) {
+    public void setProductos(List<Repuesto> productos) {
         this.productos = productos;
     }
 

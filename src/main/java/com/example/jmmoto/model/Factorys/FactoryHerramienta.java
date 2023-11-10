@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class FactoryHerramienta implements Serializable {
 
-    public static Herramienta createHerramienta(String numeroSerie, String tipo, String marca, String estado, String fechaAdquisicion, boolean disponibilidad) {
-        return new Herramienta(numeroSerie, tipo, marca, estado, fechaAdquisicion, disponibilidad);
+    public static Herramienta createHerramienta(String numeroSerie, String nombre, String tipo, String marca, String estado, String fechaAdquisicion, boolean disponibilidad) {
+        return new Herramienta(numeroSerie, nombre,tipo, marca, estado, fechaAdquisicion, disponibilidad);
     }
 }
