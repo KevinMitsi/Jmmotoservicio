@@ -7,6 +7,8 @@ import com.example.jmmoto.model.inventario.Inventario;
 import com.example.jmmoto.model.moto.Moto;
 import com.example.jmmoto.model.persona.*;
 import com.example.jmmoto.model.procedimiento.Procedimiento;
+import com.example.jmmoto.model.productos.Repuesto;
+import com.example.jmmoto.model.productos.Servicio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -34,6 +36,7 @@ public class Sede implements Serializable {
     private List<Cita>citas;
     private List<Cuenta>cuentas;
     private List<Persona>personas;
+    private List<Servicio> servicioList;
 
     public Sede(String nombre, String direccion, String telefono, String email, String horario, Propietario propietario) {
         this.id = String.valueOf(hashCode());
@@ -56,6 +59,7 @@ public class Sede implements Serializable {
         this.cuentas=new ArrayList<>();
         this.personas=new ArrayList<>();
         this.personas = agregarPeronas();
+        this.servicioList = new ArrayList<>();
     }
 
     public Sede(){
@@ -230,6 +234,14 @@ public class Sede implements Serializable {
         return Objects.equals(getNombre(), sede.getNombre()) && Objects.equals(getDireccion(), sede.getDireccion()) && Objects.equals(getTelefono(), sede.getTelefono());
     }
 
+    public List<Servicio> getServicioList() {
+        return servicioList;
+    }
+
+    public void setServicioList(List<Servicio> servicioList) {
+        this.servicioList = servicioList;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(getNombre(), getDireccion(), getTelefono());
@@ -279,5 +291,15 @@ public class Sede implements Serializable {
             throw new NullPointerException("Usuario no encontrado");
         }
         return cuenta;
+    }
+
+    public String calcularDisponibilidad(Repuesto repuestoSeleccionado) {
+        int contador = 0;
+        for (Repuesto repuesto: inventario.getProductos()){
+            if (repuestoSeleccionado.getCodigoSav().equals(repuesto.getCodigoSav())){
+                contador++;
+            }
+        }
+        return String.valueOf(contador);
     }
 }

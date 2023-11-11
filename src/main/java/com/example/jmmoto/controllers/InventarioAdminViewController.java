@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
+
 public class InventarioAdminViewController {
     ObservableList<Herramienta> herramientasObservableList;
     ObservableList<Repuesto> repuestoObservableList;
@@ -48,7 +50,7 @@ public class InventarioAdminViewController {
         tableRepuestos.getItems().addAll(repuestoObservableList);
        }
 
-    public void onDragHerramientaItem(MouseEvent mouseEvent) {
+    public void onDragHerramientaItem(MouseEvent mouseEvent) throws IOException {
         if (herramientaSeleccionada!=null){
             main.ampliarHerramienta(herramientaSeleccionada);
         }
@@ -57,16 +59,24 @@ public class InventarioAdminViewController {
         }
     }
 
-    public void onDragRepuestoItem(MouseEvent mouseEvent) {
+    public void onDragRepuestoItem(MouseEvent mouseEvent) throws IOException {
         if(repuestoSeleccionado!=null){
             main.abrirAmpliarRepuestoSeleccionado(repuestoSeleccionado);
         }
     }
 
-    public void onAgregarButtonClick(ActionEvent event) {
+    public void onAgregarButtonClick(ActionEvent event) throws IOException {
+       if (tabButHerramientas.isSelected()){
+           main.agregarHerramienta();
+       }
+       if (tabButtRepuesto.isSelected()){
+           main.agregarProducto();
+       }
+
     }
 
-    public void onVolverLinkCLick(ActionEvent event) {
+    public void onVolverLinkCLick(ActionEvent event) throws IOException {
+        main.abrirPanelAdmin();
     }
     @FXML
     public void initialize(){

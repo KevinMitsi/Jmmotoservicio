@@ -36,6 +36,9 @@ public class Moto implements Serializable {
         this.fechaCompra = fechaCompra;
     }
 
+    public Moto() {
+    }
+
     public String getPlaca() {
         return placa;
     }

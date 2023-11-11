@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="544.0" prefWidth="359.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.AgregarProductoViewController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="14.0" text="Agregar Repuesto" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="155.0" layoutY="72.0" text="Nombre:" />
+      <TextField fx:id="tfNombre" layoutX="70.0" layoutY="90.0" prefHeight="26.0" prefWidth="218.0" promptText="Nombre de producto" />
+      <Label layoutX="143.0" layoutY="127.0" text="Código SAV:" />
+      <TextField fx:id="tfCodeSAV" layoutX="69.0" layoutY="145.0" prefHeight="26.0" prefWidth="218.0" promptText="Código SAV del repuesto" />
+      <TextField fx:id="tfCategoria" layoutX="67.0" layoutY="202.0" prefHeight="26.0" prefWidth="218.0" promptText="Categoría del Repuesto" />
+      <TextField fx:id="tfMarca" layoutX="67.0" layoutY="246.0" prefHeight="26.0" prefWidth="218.0" promptText="Marca del Repuesto" />
+      <TextField fx:id="tfPrecioCompra" layoutX="70.0" layoutY="296.0" prefHeight="26.0" prefWidth="218.0" promptText="Precio al que compró el repuesto" />
+      <TextField fx:id="tfPrecioVenta" layoutX="67.0" layoutY="340.0" prefHeight="26.0" prefWidth="218.0" promptText="Precio al que piensa vender el producto" />
+      <TextArea fx:id="taDescripcion" layoutX="66.0" layoutY="384.0" prefHeight="58.0" prefWidth="218.0" promptText="Breve discripción del repuesto" />
+      <DatePicker fx:id="dpFecha" editable="false" layoutX="69.0" layoutY="460.0" prefHeight="26.0" prefWidth="218.0" promptText="Seleccione la fecha de adquisición" />
+      <Hyperlink fx:id="hlVolver" layoutX="8.0" layoutY="2.0" onAction="#onVolverButtonClick" text="Volver" underline="true" />
+      <Label layoutX="149.0" layoutY="184.0" text="Categoría:" />
+      <Label layoutX="158.0" layoutY="228.0" text="Marca:" />
+      <Label layoutX="128.0" layoutY="278.0" text="Precio de compra:" />
+      <Label layoutX="137.0" layoutY="322.0" text="Precio de venta:" />
+      <Label layoutX="111.0" layoutY="366.0" text="Descripción del Producto:" />
+      <Label layoutX="121.0" layoutY="442.0" text="Fecha de adquisición:" />
+      <Button fx:id="btnAgregar" layoutX="148.0" layoutY="509.0" mnemonicParsing="false" onAction="#onAgregarButtonCLick" text="Agregar" />
+   </children>
+</AnchorPane>

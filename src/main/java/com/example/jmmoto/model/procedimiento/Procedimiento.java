@@ -37,6 +37,9 @@ public class Procedimiento implements Serializable {
         this.productosUtilizados= new ArrayList<>();
     }
 
+    public Procedimiento() {
+    }
+
     public String getId() {
         return id;
     }

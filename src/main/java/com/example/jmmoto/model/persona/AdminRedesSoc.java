@@ -28,6 +28,8 @@ public class AdminRedesSoc extends Persona implements Serializable {
         this.cuenta= cuenta;
     }
 
+
+
     public List<RedSocial> getRedSocial() {
 
         return redSociales;

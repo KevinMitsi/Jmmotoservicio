@@ -29,6 +29,9 @@ public class MarcaMoto implements Serializable {
         this.logo=null;
     }
 
+    public MarcaMoto() {
+    }
+
     public String getId() {
         return id;
     }
