@@ -15,6 +15,7 @@ public class Herramienta implements Serializable {
 
     public Herramienta(String numeroSerie, String nombre,String tipo, String marca, String estado, String fechaAdquisicion, boolean disponibilidad) {
         this.numeroSerie = numeroSerie;
+        this.nombre = nombre;
         this.tipo = tipo;
         this.marca = marca;
         this.estado = estado;
