@@ -23,6 +23,9 @@ public class Herramienta implements Serializable {
         this.id = String.valueOf(Objects.hash(getNumeroSerie()));
     }
 
+    public Herramienta() {
+    }
+
     public String getId() {
         return id;
     }

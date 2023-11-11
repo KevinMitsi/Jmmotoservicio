@@ -7,19 +7,22 @@ public class Servicio extends Producto implements Serializable {
     private String id;
     private String nombre;
     private double precio;
-    private String categorías;
+    private String categorias;
     private String especificaciones;
     private String duracion;
     private String estado;
 
-    public Servicio( String nombre, double precio, String categorías, String especificaciones, String duracion, String estado) {
-        this.id = String.valueOf( Objects.hash(getNombre(), getPrecio(), getCategorías()));
+    public Servicio( String nombre, double precio, String categorias, String especificaciones, String duracion, String estado) {
+        this.id = String.valueOf( Objects.hash(getNombre(), getPrecio(), getcategorias()));
         this.nombre = nombre;
         this.precio = precio;
-        this.categorías = categorías;
+        this.categorias = categorias;
         this.especificaciones = especificaciones;
         this.duracion = duracion;
         this.estado = estado;
+    }
+
+    public Servicio() {
     }
 
     public String getId() {
@@ -46,12 +49,12 @@ public class Servicio extends Producto implements Serializable {
         this.precio = precio;
     }
 
-    public String getCategorías() {
-        return categorías;
+    public String getcategorias() {
+        return categorias;
     }
 
-    public void setCategorías(String categorías) {
-        this.categorías = categorías;
+    public void setcategorias(String categorias) {
+        this.categorias = categorias;
     }
 
     public String getEspecificaciones() {
@@ -82,11 +85,11 @@ public class Servicio extends Producto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Servicio servicio)) return false;
-        return Double.compare(servicio.getPrecio(), getPrecio()) == 0 && Objects.equals(getNombre(), servicio.getNombre()) && Objects.equals(getCategorías(), servicio.getCategorías());
+        return Double.compare(servicio.getPrecio(), getPrecio()) == 0 && Objects.equals(getNombre(), servicio.getNombre()) && Objects.equals(getcategorias(), servicio.getcategorias());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNombre(), getPrecio(), getCategorías());
+        return Objects.hash(getNombre(), getPrecio(), getcategorias());
     }
 }

@@ -34,7 +34,8 @@ public class Cita implements Serializable {
         this.notasCliente=new ArrayList<>();
     }
 
-
+    public Cita() {
+    }
 
     public Cliente getCliente() {
         return cliente;

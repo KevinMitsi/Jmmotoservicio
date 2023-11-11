@@ -2,7 +2,7 @@ package com.example.jmmoto.model.productos;
 
 import java.io.Serializable;
 
-public class Repuesto extends Producto implements Serializable {
+public class  Repuesto extends Producto implements Serializable {
     private String id;
     private String nombre;
     private String codigoSav;
@@ -15,9 +15,8 @@ public class Repuesto extends Producto implements Serializable {
     private String fechaVenta;
     private String disponibilidad;
 
-    public Repuesto(String id, String nombre, String codigoSav, String categoria, String descripcion, String marca, double precioCompra, double precioVenta, String fechaCompra, String disponibilidad) {
-        this.id = id;
-        this.nombre = nombre;
+    public Repuesto(String nombre, String codigoSav, String categoria, String descripcion, String marca, double precioCompra, double precioVenta, String fechaCompra) {
+       this.nombre = nombre;
         this.codigoSav = codigoSav;
         this.categoria = categoria;
         this.descripcion = descripcion;
@@ -26,7 +25,12 @@ public class Repuesto extends Producto implements Serializable {
         this.precioVenta = precioVenta;
         this.fechaCompra = fechaCompra;
         this.fechaVenta = null;
-        this.disponibilidad = disponibilidad;
+        this.disponibilidad = "1";
+        this.id = String.valueOf(hashCode());
+
+    }
+
+    public Repuesto() {
     }
 
     public String getId() {

@@ -24,6 +24,9 @@ public class CuentaRed implements Serializable {
 
     }
 
+    public CuentaRed() {
+    }
+
     public String getId() {
         return id;
     }
