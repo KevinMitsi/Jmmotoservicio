@@ -13,13 +13,13 @@ public class Servicio extends Producto implements Serializable {
     private String estado;
 
     public Servicio( String nombre, double precio, String categorias, String especificaciones, String duracion, String estado) {
-        this.id = String.valueOf( Objects.hash(getNombre(), getPrecio(), getcategorias()));
         this.nombre = nombre;
         this.precio = precio;
         this.categorias = categorias;
         this.especificaciones = especificaciones;
         this.duracion = duracion;
         this.estado = estado;
+        this.id = String.valueOf( Objects.hash(getNombre(), getPrecio(), getcategorias()));
     }
 
     public Servicio() {
