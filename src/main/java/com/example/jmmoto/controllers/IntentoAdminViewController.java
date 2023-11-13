@@ -20,7 +20,8 @@ public class IntentoAdminViewController {
         this.keyProduct = key;
     }
 
-    public void onCancelarButtonClick(ActionEvent event) {
+    public void onCancelarButtonClick(ActionEvent event) throws IOException {
+        main.inicializarLogin();
     }
 
     public void onIniciarButtonClick(ActionEvent event) throws IOException {

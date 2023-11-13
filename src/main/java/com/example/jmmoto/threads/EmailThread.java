@@ -1,4 +1,6 @@
 package com.example.jmmoto.threads;
+import com.example.jmmoto.controllers.Alerta;
+
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -51,7 +53,6 @@ public class EmailThread extends Thread {
             message.setSubject(subject);
             message.setText(text);
             Transport.send(message);
-            System.out.println("Correo enviado con éxito.");
             isRunning=false;
         } catch (MessagingException e) {
             throw new Exception("Error al enviar el correo: " + e.getMessage());

@@ -2,33 +2,37 @@ package com.example.jmmoto.controllers;
 
 import com.example.jmmoto.MainJm;
 import com.example.jmmoto.model.persona.Cliente;
+import com.example.jmmoto.model.productos.Servicio;
 import com.example.jmmoto.model.sede.Sede;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
 public class AmpliarServicioRapidoViewController {
-    public TextArea areaDescripcion;
-    MainJm main;
-    ModelFactoryController singleton = ModelFactoryController.getInstance();
+    public Label lblTituloServ;
+    public Text txtDescrpcion;
+     MainJm main;
     Cliente clienteLogueado;
-    Sede sede = singleton.getSedes();
+    Servicio servicioSeleccionado;
 
     @FXML
-    public void agendarButtonClick() {
+    public void agendarButtonClick() throws IOException {
+        main.abrirAgendarCitaCLiente(clienteLogueado, servicioSeleccionado);
     }
     @FXML
     public void onRegresarClick() throws IOException {
         main.abrirPanelCliente(clienteLogueado);
     }
 
-    public void setMain(MainJm main, Cliente clieneLogeado){
+    public void setMain(MainJm main, Cliente clieneLogeado, Servicio servicioSeleccionado){
         this.main=main;
         this.clienteLogueado=clieneLogeado;
-        areaDescripcion.setVisible(true);
-        areaDescripcion.setText("En este servicio entran todas las clases de procedimientos los cuales no son muy complejos y normalmente demoran poco algunos ejmeplos son: " +
-                "\nCambio de pastillas.\nCambio de aceite.\nAjuste de una pieza. \n...");
+        this.servicioSeleccionado=servicioSeleccionado;
+        lblTituloServ.setText(servicioSeleccionado.getNombre());
+        txtDescrpcion.setText(servicioSeleccionado.getEspecificaciones());
     }
 }

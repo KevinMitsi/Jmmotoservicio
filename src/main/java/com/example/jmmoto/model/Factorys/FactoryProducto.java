@@ -11,7 +11,7 @@ public class FactoryProducto implements Serializable {
     }
 
 
-    public static Servicio crearServicio(String nombre, double precio, String categorias, String especificaciones, String duracion, String estado) {
-        return new Servicio(nombre, precio, categorias, especificaciones, duracion, estado);
+    public static Servicio crearServicio(String nombre, double precio, String categorias, String especificaciones, String duracion, String estado, String rutaImagen) {
+        return new Servicio(nombre, precio, categorias, especificaciones, duracion, estado, rutaImagen);
     }
 }

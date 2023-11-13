@@ -1,5 +1,6 @@
 package com.example.jmmoto.controllers;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 public interface Alerta {
     static void saltarAlertaInformacion(String contenido){
@@ -20,10 +21,11 @@ public interface Alerta {
         alert.setContentText(contenido);
         alert.showAndWait();
     }
-    static void saltarAlertaConfirmacion(String contenido){
+    static ButtonType saltarAlertaConfirmacion(String titulo, String contenido){
         Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText("LISTO");
+        alert.setHeaderText(titulo);
         alert.setContentText(contenido);
-        alert.showAndWait();
+        return alert.showAndWait().get();
     }
+
 }

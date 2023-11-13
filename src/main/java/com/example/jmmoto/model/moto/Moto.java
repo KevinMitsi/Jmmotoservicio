@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class Moto implements Serializable {
     private String id;
+    private String marca;
     private String placa;
     private String modelo;
     private String anioFabricacion;
@@ -19,8 +20,7 @@ public class Moto implements Serializable {
     private boolean accesorios;
     private String fechaCompra;
 
-    public Moto(String placa, String modelo, String anioFabricacion, String numeroChasis, String color, String tipoMotor, String cilindraje, String tipoCombustible, String tipoAceite, String kilometraje, String estado, boolean accesorios, String fechaCompra) {
-        this.id = String.valueOf(hashCode());
+    public Moto(String placa, String modelo, String marca,String anioFabricacion, String numeroChasis, String color, String tipoMotor, String cilindraje, String tipoCombustible, String tipoAceite, String kilometraje, String estado, boolean accesorios, String fechaCompra) {
         this.modelo = modelo;
         this.placa = placa;
         this.anioFabricacion = anioFabricacion;
@@ -29,10 +29,12 @@ public class Moto implements Serializable {
         this.tipoMotor = tipoMotor;
         this.cilindraje = cilindraje;
         this.tipoCombustible = tipoCombustible;
+        this.marca = marca;
         this.tipoAceite = tipoAceite;
         this.kilometraje = kilometraje;
         this.estado = estado;
         this.accesorios = accesorios;
+        this.id = String.valueOf(hashCode());
         this.fechaCompra = fechaCompra;
     }
 
@@ -131,6 +133,14 @@ public class Moto implements Serializable {
         return estado;
     }
 
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
     public void setEstado(String estado) {
         this.estado = estado;
     }
@@ -155,7 +165,7 @@ public class Moto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Moto moto)) return false;
-        return Objects.equals(getPlaca(), moto.getPlaca()) && Objects.equals(getNumeroChasis(), moto.getNumeroChasis());
+        return Objects.equals(getPlaca(), moto.getPlaca()) || Objects.equals(getNumeroChasis(), moto.getNumeroChasis());
     }
 
     @Override

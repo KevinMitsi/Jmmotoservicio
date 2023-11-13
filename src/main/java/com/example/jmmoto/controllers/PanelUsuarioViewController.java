@@ -1,26 +1,32 @@
 package com.example.jmmoto.controllers;
 
 import com.example.jmmoto.MainJm;
+import com.example.jmmoto.model.moto.Moto;
 import com.example.jmmoto.model.persona.Cliente;
+import com.example.jmmoto.model.productos.Servicio;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 public class PanelUsuarioViewController {
     public ScrollPane scrollPane;
     public ImageView imgPerfil;
+    public AnchorPane anchorP;
     MainJm main;
+    ModelFactoryController singleton = ModelFactoryController.getInstance();
     Cliente clienteLogeado;
-    @FXML
-    private Pane contentPane;
 
     @FXML
     private void initialize() {
@@ -32,62 +38,32 @@ public class PanelUsuarioViewController {
     }
     @FXML
     private void onServiciosButtonClick() {
-        // Limpiar el contentPane antes de agregar nuevos elementos
-        contentPane.getChildren().clear();
-        // Ejemplo de cómo crear una publicación personalizada
-        String imagenPath1 = "/com/example/jmmoto/kilometraje.png";
-        String titulo1 = "Revisión de Kilometraje";
-        String descripcion1 = "Revisiones de Kilometraje en motos en Garantía de marca o revisiones fuera de garantía";
-        VBox publicationPane1 = crearPublicacion(imagenPath1, titulo1, descripcion1);
-        contentPane.getChildren().add(publicationPane1);
-        String imagenPath2 = "/com/example/jmmoto/mantnimiento.png";
-        String titulo2 = "Mantenimiento";
-        String descripcion2 = "Revisión más completa y específica para mantener tu moto preventivamente en su mejor estado";
-        VBox publicationPane2 = crearPublicacion(imagenPath2, titulo2, descripcion2);
-        contentPane.getChildren().add(publicationPane2);
-        String imagenPath3 = "/com/example/jmmoto/peritaje.png";
-        String titulo3 = "Peritaje";
-        String descripcion3 = "Servicio para calculo de precios de la motocicleta y terminos legales";
-        VBox publicationPane3 = crearPublicacion(imagenPath3, titulo3, descripcion3);
-        contentPane.getChildren().add(publicationPane3);
-        String imagenPath4 = "/com/example/jmmoto/serviciosRapidos.png";
-        String titulo4 = "Servicios Rapidos";
-        String descripcion4 = "Servicios básicos y que no necesitan mucho tiempo";
-        VBox publicationPane4 = crearPublicacion(imagenPath4, titulo4, descripcion4);
-        contentPane.getChildren().add(publicationPane4);
+        VBox mainVbox = new VBox();
+        mainVbox.setSpacing(10);
+        mainVbox.setMaxWidth(anchorP.getPrefWidth());
+        for(Servicio servicio: singleton.getSedes().getServicioList()){
+            VBox servicioVbox = crearPublicacion(servicio);
+            servicioVbox.setSpacing(5);
 
-        // Configurar el contenido del ScrollPane
-        scrollPane.setMaxSize(400, 400);
-        scrollPane.setContent(contentPane);
+            mainVbox.getChildren().add(servicioVbox);
+        }
+        scrollPane.setMaxWidth(anchorP.getPrefWidth());
+        scrollPane.setContent(mainVbox);
     }
 
-    private VBox crearPublicacion(String imagenPath, String titulo, String descripcion) {
+    private VBox crearPublicacion(Servicio servicio) {
         // Crear elementos de la publicación
-        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream(imagenPath)));
+        ImageView imageView = new ImageView(imagenServicio(servicio));
         imageView.setFitHeight(100);  // Establecer la altura deseada
         imageView.setPreserveRatio(true);  // Mantener la proporción de la imagen
-        Label titleLabel = new Label(titulo);
-        titleLabel.getStyleClass().add("rounded-textfield"); // Aplicar estilo al título
-
-        Label descriptionLabel = new Label(descripcion);
-        descriptionLabel.getStyleClass().add("rounded-textfield"); // Aplicar estilo a la descripción
-
+        Label titleLabel = new Label(servicio.getNombre());
+        Text descriptionLabel = new Text(servicio.getEspecificaciones());
+        descriptionLabel.setWrappingWidth(anchorP.getPrefWidth()-100);
         Button assignButton = new Button("Asignar cita");
         assignButton.getStyleClass().add("login-button"); // Aplicar estilo al botón
         assignButton.setOnAction(event ->{
             try {
-               if(titulo.equals("Revisión de Kilometraje")){
-                   main.abrirAmpliacionServicioRevision(clienteLogeado);
-               }
-                if(titulo.equals("Mantenimiento")){
-                    main.abrirAmpliacionServicioMantenimiento(clienteLogeado);
-                }
-                if(titulo.equals("Peritaje")){
-                    main.abrirAmpliacionServicioPeritaje(clienteLogeado);
-                }
-                if(titulo.equals("Servicios Rapidos")){
-                    main.abrirAmpliacionServicioRapido(clienteLogeado);
-                }
+               main.abrirAmpliacionServicio(clienteLogeado,servicio);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -96,26 +72,11 @@ public class PanelUsuarioViewController {
         // Crear el panel de la publicación
         VBox publicationPane = new VBox(imageView, titleLabel, descriptionLabel, assignButton);
         publicationPane.getStyleClass().add("publication-pane");
+        publicationPane.setMaxWidth(anchorP.getPrefWidth());
         // Crear el panel de la publicación
-
         return publicationPane;
     }
 
-
-    @FXML
-    private void onRepuestosButtonClick() {
-        // Limpiar el contentPane antes de agregar el mensaje de Repuestos
-        contentPane.getChildren().clear();
-
-        // Mostrar el mensaje de Repuestos
-        Pane repuestosPane = new Pane();
-        Label messageLabel = new Label("Pronto");
-        repuestosPane.getChildren().add(messageLabel);
-        repuestosPane.getStyleClass().add("repuestos-pane");
-
-        // Agregar el mensaje de Repuestos al contentPane
-        contentPane.getChildren().add(repuestosPane);
-    }
 
     // Métodos para manejar otros eventos y funcionalidades, si es necesario
 
@@ -135,14 +96,41 @@ public class PanelUsuarioViewController {
             } else {
                 System.err.println("El archivo de imagen no existe en la ubicación especificada.");
                 // Cargar una imagen predeterminada en su lugar
-                this.imgPerfil.setImage(new Image(getClass().getResourceAsStream("/com/example/jmmoto/user.png")));
+                this.imgPerfil.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/jmmoto/user.png"))));
             }
         } else {
             System.err.println("La URL de la imagen es nula.");
             // Cargar una imagen predeterminada en su lugar
-            this.imgPerfil.setImage(new Image(getClass().getResourceAsStream("/com/example/jmmoto/user.png")));
+            this.imgPerfil.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/jmmoto/user.png"))));
         }
     }
 
+    public Image imagenServicio(Servicio servicio){
+        Image theImage = null;
+        String urlFoto = servicio.getRutaImagen();
+        if (urlFoto != null) {
+            File file = new File(urlFoto);
+            if (file.exists()) {
+                theImage = new Image(file.toURI().toString());
+            } else {
+                System.err.println("El archivo de imagen no existe en la ubicación especificada.");
+            }
+        } else {
+            System.err.println("La URL de la imagen es nula.");
+            }
+        return  theImage;
+    }
 
+
+    public void menuItemCitasClick() throws IOException{
+        main.abrirCitasCliente(clienteLogeado);
+    }
+
+    public void menuItemMisMotosClick() throws  IOException{
+        main.abrirMotosCliente(clienteLogeado);
+    }
+
+    public void menuItemAddMotoClick() throws IOException{
+        main.abrirAgregarMotoCliente(clienteLogeado);
+    }
 }

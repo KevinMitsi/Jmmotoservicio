@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="141.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.IntentoAdminViewController">
+<AnchorPane prefHeight="141.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.IntentoAdminViewController">
     <children>
-        <Label alignment="CENTER" layoutY="14.0" prefHeight="18.0" prefWidth="470.0" text="Para poder iniciar sesión ingrese su número que le llegó a su correo electrónico" textAlignment="CENTER">
+        <Label alignment="CENTER" layoutY="14.0" prefHeight="18.0" prefWidth="470.0" text="Ingrese su clave de producto" textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-        <TextField fx:id="tfCode" layoutX="120.0" layoutY="57.0" prefHeight="26.0" prefWidth="230.0" promptText="Codigo de tres dígitos enviado al correo" />
+        <TextField fx:id="tfCode" layoutX="120.0" layoutY="57.0" prefHeight="26.0" prefWidth="230.0" promptText="ingrese su clave de producto" />
         <Button fx:id="btnCancelar" layoutX="89.0" layoutY="102.0" mnemonicParsing="false" onAction="#onCancelarButtonClick" text="Cancelar" />
         <Button fx:id="btnIniciar" layoutX="326.0" layoutY="102.0" mnemonicParsing="false" onAction="#onIniciarButtonClick" text="Iniciar" />
     </children>
