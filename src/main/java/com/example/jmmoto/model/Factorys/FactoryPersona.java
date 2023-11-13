@@ -32,7 +32,7 @@ public class FactoryPersona implements Serializable {
     }
 
      
-    public static Recepcionista createRecepcionista(String nombre, String apellido, String cedula, String fechaNacimiento, String genero, String numeroTelefono, String email, String estadoCivil, String nivelEducacion, String experienciaLaboral, String salario, String horario) {
+    public static Recepcionista createRecepcionista(String nombre, String apellido, String cedula, String fechaNacimiento, String genero, String numeroTelefono, String email, String estadoCivil, String nivelEducacion, String experienciaLaboral, double salario, String horario) {
         return new Recepcionista(nombre, apellido, cedula, fechaNacimiento, genero, numeroTelefono, email, estadoCivil, nivelEducacion, experienciaLaboral, salario, horario);
     }
 }

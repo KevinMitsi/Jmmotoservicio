@@ -7,12 +7,12 @@ import java.io.Serializable;
 public class Recepcionista extends Persona implements Serializable {
     private String nivelEducacion;
     private String experienciaLaboral;
-    private String salario;
+    private double salario;
     private String horario;
 
     Rol rol;
 
-    public Recepcionista(String nombre, String apellido, String cedula, String fechaNacimiento, String genero, String numeroTelefono, String email, String estadoCivil, String nivelEducacion, String experienciaLaboral, String salario, String horario) {
+    public Recepcionista(String nombre, String apellido, String cedula, String fechaNacimiento, String genero, String numeroTelefono, String email, String estadoCivil, String nivelEducacion, String experienciaLaboral, double salario, String horario) {
         super(nombre, apellido, cedula, fechaNacimiento, genero, numeroTelefono, email, estadoCivil);
         this.nivelEducacion = nivelEducacion;
         this.experienciaLaboral = experienciaLaboral;
@@ -38,11 +38,11 @@ public class Recepcionista extends Persona implements Serializable {
         this.experienciaLaboral = experienciaLaboral;
     }
 
-    public String getSalario() {
+    public double getSalario() {
         return salario;
     }
 
-    public void setSalario(String salario) {
+    public void setSalario(double salario) {
         this.salario = salario;
     }
 

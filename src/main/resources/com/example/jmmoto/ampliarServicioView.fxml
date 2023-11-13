@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="347.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.AmpliarServicioRapidoViewController">
+    <Button layoutX="192.0" layoutY="307.0" onAction="#agendarButtonClick" styleClass="login-button" text="Agendar Cita" />
+    <Label fx:id="lblTituloServ" alignment="CENTER" contentDisplay="CENTER" layoutY="26.0" prefHeight="34.0" prefWidth="471.0" text="Servicio Rápido" textAlignment="CENTER" textFill="#007bff" wrapText="true">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <Hyperlink layoutX="6.0" layoutY="2.0" onAction="#onRegresarClick" text="Regresar">
+        <font>
+            <Font name="System Italic" size="12.0" />
+        </font>
+    </Hyperlink>
+   <Text fx:id="txtDescrpcion" layoutX="39.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="391.7366943359375">
+      <font>
+         <Font name="System Bold" size="17.0" />
+      </font></Text>
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutY="240.0" prefHeight="18.0" prefWidth="471.0" text="Duración estimada:" textAlignment="CENTER">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <Label fx:id="lblDuracion" alignment="CENTER" contentDisplay="CENTER" layoutY="258.0" prefHeight="18.0" prefWidth="471.0" text="Duracion" textAlignment="CENTER" />
+
+</AnchorPane>

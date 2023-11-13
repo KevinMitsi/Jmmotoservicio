@@ -175,6 +175,38 @@
     <void property="recepcionistas">
      <object class="java.util.ArrayList"/>
     </void>
+    <void property="servicioList">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="com.example.jmmoto.model.productos.Servicio">
+        <void property="categorias">
+         <string>Mantenimiento General</string>
+        </void>
+        <void property="duracion">
+         <string>5 horas</string>
+        </void>
+        <void property="especificaciones">
+         <string>En el mantenimiento se realiza un ajuste a todas las partes móviles de la motocicleta, se cambia filtro de aire de aceite, y también aceite</string>
+        </void>
+        <void property="estado">
+         <string>creado</string>
+        </void>
+        <void property="id">
+         <string>-2071027909</string>
+        </void>
+        <void property="nombre">
+         <string>Mantenimiento Tipo</string>
+        </void>
+        <void property="precio">
+         <double>150000.0</double>
+        </void>
+        <void property="rutaImagen">
+         <string>src/main/java/com/example/jmmoto/servicesImgs/mantnimiento.png</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
     <void property="tecnicos">
      <object class="java.util.ArrayList"/>
     </void>

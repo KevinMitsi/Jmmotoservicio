@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.EmpleadosViewController">
+    <children>
+        <TabPane fx:id="myTab" layoutX="-3.0" layoutY="107.0" prefHeight="289.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tabButTecnicos" onSelectionChanged="#onTabTecnicosChanged" text="Tecnicos">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="tableTecnicos" layoutX="4.0" layoutY="-2.0" onDragDetected="#onDragTecnicoItem" prefHeight="266.0" prefWidth="594.0">
+                                    <columns>
+                                        <TableColumn fx:id="colNombreTec" minWidth="0.0" prefWidth="174.39993000030518" text="Nombre" />
+                                        <TableColumn fx:id="colCeduTec" prefWidth="173.59999084472656" text="CEDULA" />
+                                        <TableColumn fx:id="colTelefTec" prefWidth="100.0" text="TELÉFONO" />
+                              <TableColumn fx:id="colSalarioTec" prefWidth="147.99993896484375" text="SALARIO" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabButtAdminsR" onSelectionChanged="#onTabAdminRedesChange" text="Admin Redes">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <AnchorPane layoutX="-1.0" prefHeight="262.0" prefWidth="600.0">
+                                    <children>
+                                        <TableView fx:id="tableAdminsR" layoutX="2.0" onDragDetected="#onDragAdminRItem" prefHeight="264.0" prefWidth="600.0">
+                                            <columns>
+                                                <TableColumn fx:id="colNombreAdminR" prefWidth="195.99996638298035" text="NOMBRE" />
+                                                <TableColumn fx:id="colCeduAdminR" prefWidth="135.2000274658203" text="CEDULA" />
+                                                <TableColumn fx:id="colTelefAdminR" prefWidth="143.20001220703125" text="TELÉFONO" />
+                                    <TableColumn fx:id="colSalarioAdminR" prefWidth="132.0" text="SALARIO" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            <Tab fx:id="tabButAnalistas" onSelectionChanged="#onTabAnalistasChange" text="Analistas">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableAnalistas" layoutX="4.0" layoutY="-2.0" onDragDetected="#onDragAnalistaItem" prefHeight="266.0" prefWidth="594.0">
+                           <columns>
+                              <TableColumn fx:id="colNombreAnalist" minWidth="0.0" prefWidth="205.60000324249268" text="NOMBRE" />
+                              <TableColumn fx:id="colCeduAnalist" prefWidth="148.8000030517578" text="CÉDULA" />
+                              <TableColumn fx:id="colTelefAnalist" prefWidth="116.79998779296875" text="TELÉFONO" />
+                              <TableColumn fx:id="colSalarioAnalist" prefWidth="121.5999755859375" text="SALARIO" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabButRecepcionistas" onSelectionChanged="#onRecepcionistasChange" text="Recepcionistas">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableRecepcionistas" layoutX="4.0" layoutY="-2.0" onDragDetected="#onDragRecepcionistaItem" prefHeight="266.0" prefWidth="594.0">
+                           <columns>
+                              <TableColumn fx:id="colNombreRecep" minWidth="0.0" prefWidth="226.39999103546143" text="NOMBRE" />
+                              <TableColumn fx:id="colCeduRecep" prefWidth="128.8000030517578" text="CEDULA" />
+                              <TableColumn fx:id="colTelefRecep" prefWidth="112.0" text="TELÉFONO" />
+                              <TableColumn fx:id="colSalarioRecep" prefWidth="126.39996337890625" text="SALARIO" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            </tabs>
+        </TabPane>
+        <Button fx:id="btnAgregar" layoutX="222.0" layoutY="70.0" mnemonicParsing="false" onAction="#onNuevoEmpleadoClick" prefHeight="26.0" prefWidth="156.0" text="Nuevo Empleado" />
+        <Label layoutX="223.0" layoutY="22.0" text="Tus empleados">
+            <font>
+                <Font name="System Bold" size="21.0" />
+            </font>
+        </Label>
+        <Hyperlink fx:id="hlBack" layoutX="14.0" layoutY="14.0" onAction="#onVolverLinkCLick" text="Volver" textAlignment="CENTER" underline="true" />
+    </children>
+
+</AnchorPane>

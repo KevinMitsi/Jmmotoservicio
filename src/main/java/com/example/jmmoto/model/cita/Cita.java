@@ -21,10 +21,10 @@ public class Cita implements Serializable {
     private List<String> notasCliente;
     private List<String> notasAdmin;
 
-    public Cita(Cliente cliente, Tecnico tecnico, List<Servicio> servicios, String fecha, String hora, String estadoCita, String fechaCreacion) {
+    public Cita(Cliente cliente, Tecnico tecnico, String fecha, String hora, String estadoCita, String fechaCreacion) {
         this.cliente = cliente;
         this.tecnico = tecnico;
-        this.servicios = servicios;
+        this.servicios = new ArrayList<>();
         this.id = String.valueOf(hashCode());
         this.fecha = fecha;
         this.hora = hora;

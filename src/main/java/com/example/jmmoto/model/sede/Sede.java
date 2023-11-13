@@ -1,6 +1,7 @@
 package com.example.jmmoto.model.sede;
 
 import com.example.jmmoto.model.cita.Cita;
+import com.example.jmmoto.model.cita.SolicitudCita;
 import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.factura.Factura;
 import com.example.jmmoto.model.inventario.Inventario;
@@ -37,6 +38,7 @@ public class Sede implements Serializable {
     private List<Cuenta>cuentas;
     private List<Persona>personas;
     private List<Servicio> servicioList;
+    private List<SolicitudCita>solicitudCitas;
 
     public Sede(String nombre, String direccion, String telefono, String email, String horario, Propietario propietario) {
         this.id = String.valueOf(hashCode());
@@ -60,6 +62,7 @@ public class Sede implements Serializable {
         this.personas=new ArrayList<>();
         this.personas = agregarPeronas();
         this.servicioList = new ArrayList<>();
+        this.solicitudCitas = new ArrayList<>();
     }
 
     public Sede(){
@@ -142,6 +145,14 @@ public class Sede implements Serializable {
 
     public List<Analista> getAnalistas() {
         return analistas;
+    }
+
+    public List<SolicitudCita> getSolicitudCitas() {
+        return solicitudCitas;
+    }
+
+    public void setSolicitudCitas(List<SolicitudCita> solicitudCitas) {
+        this.solicitudCitas = solicitudCitas;
     }
 
     public void setAnalistas(List<Analista> analistas) {
@@ -301,5 +312,23 @@ public class Sede implements Serializable {
             }
         }
         return String.valueOf(contador);
+    }
+
+    public void agregarAnalista(Analista analista) throws Exception {
+        if (analistas.contains(analista)){
+            throw new Exception("Este analista ya está creado");
+        }
+        else{
+            analistas.add(analista);
+        }
+    }
+
+    public void agregarServicio(Servicio creado) throws Exception {
+        if (servicioList.contains(creado)){
+            throw new Exception("Este servicio ya estác creado");
+        }
+        else{
+            servicioList.add(creado);
+        }
     }
 }

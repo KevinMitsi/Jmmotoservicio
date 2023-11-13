@@ -12,7 +12,7 @@ import java.util.List;
 
 public class FactoryCita implements Serializable {
 
-    public static Cita createCita(Cliente cliente, Tecnico tecnico, List<Servicio> servicios, String fecha, String hora, String estadoCita, String fechaCreacion) {
-        return new Cita(cliente, tecnico, servicios, fecha, hora, estadoCita, fechaCreacion);
+    public static Cita createCita(Cliente cliente, Tecnico tecnico, String fecha, String hora, String estadoCita, String fechaCreacion) {
+        return new Cita(cliente, tecnico,  fecha, hora, estadoCita, fechaCreacion);
     }
 }

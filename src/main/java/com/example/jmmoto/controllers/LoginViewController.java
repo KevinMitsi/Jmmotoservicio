@@ -59,30 +59,31 @@ public class LoginViewController {
             if (usernameField.getText().equals("admin")&&passwordField.getText().equals("admin123")){
                 main.abrirIntentoAdmin(productKey);
             }
-            if (verificarDatos(user,password)){
-                Cuenta cuenta = new Cuenta(user, password);
-                if (cuenta.getPassword().equals(codigoRecuperacion)){
-                    Cliente cliente =sede.retornarClienteAsociado(cuenta);
-                    main.abrirRecuperarContrasena(cliente);
-                    codigoRecuperacion=null;
-                }
-                else {
-                    try{
+            else {
+                if (verificarDatos(user,password)){
+                    Cuenta cuenta = new Cuenta(user, password);
+                    if (cuenta.getPassword().equals(codigoRecuperacion)){
                         Cliente cliente =sede.retornarClienteAsociado(cuenta);
-                        enviarMensajeCorreoSeguro(cliente.getCuenta());
-                        main.abrirInicioSeguro(cliente,codigoSeguridad);
+                        main.abrirRecuperarContrasena(cliente);
+                        codigoRecuperacion=null;
+                    }
+                    else {
+                        try{
+                            Cliente cliente =sede.retornarClienteAsociado(cuenta);
+                            enviarMensajeCorreoSeguro(cliente.getCuenta());
+                            main.abrirInicioSeguro(cliente,codigoSeguridad);
                         } catch (Exception e) {
-                        Alerta.saltarAlertaError(e.getMessage());
-                        numIntentosPermitidos--;
-                        if (numIntentosPermitidos<=2){
-                            Alerta.saltarAlertaAdvertencia("Si no recuerda su contraseña recuperela\nde lo contrario la apliación se bloqueará\nNumero de intentos restantes: "+numIntentosPermitidos);
+                            Alerta.saltarAlertaError(e.getMessage());
+                            numIntentosPermitidos--;
+                            if (numIntentosPermitidos<=2){
+                                Alerta.saltarAlertaAdvertencia("Si no recuerda su contraseña recuperela\nde lo contrario la apliación se bloqueará\nNumero de intentos restantes: "+numIntentosPermitidos);
+                            }
                         }
                     }
                 }
-
-            }
-            else {
-                Alerta.saltarAlertaError("Hay campos vacíos");
+                else{
+                    Alerta.saltarAlertaError("Usuario no registrado");
+                }
             }
         }
         else{
@@ -97,6 +98,10 @@ public class LoginViewController {
         while (emailThread.isRunning()){
             Alerta.saltarAlertaInformacion("Se está enviando correo electrónico");
         }
+        if (!emailThread.isRunning()){
+            Alerta.saltarAlertaInformacion("Correo enviado con éxito");
+        }
+
     }
 
 
