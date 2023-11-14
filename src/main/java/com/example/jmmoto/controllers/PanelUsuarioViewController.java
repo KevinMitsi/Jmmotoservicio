@@ -131,6 +131,6 @@ public class PanelUsuarioViewController {
     }
 
     public void menuItemAddMotoClick() throws IOException{
-        main.abrirAgregarMotoCliente(clienteLogeado);
+        main.abrirAgregarMotoCliente(clienteLogeado, true);
     }
 }

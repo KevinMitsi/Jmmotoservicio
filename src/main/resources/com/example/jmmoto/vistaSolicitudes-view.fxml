@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="314.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.jmmoto.controllers.VistaSolicitudesViewController">
+    <TableView fx:id="tableSolicitudes" layoutX="10.0" layoutY="92.0" prefHeight="207.0" prefWidth="414.0">
+      <columns>
+          <TableColumn fx:id="colLiente" prefWidth="134.3999662399292" text="CLIENTE"/>
+          <TableColumn fx:id="colMoto" prefWidth="156.0000457763672" text="MOTO"/>
+          <TableColumn fx:id="colFecha" prefWidth="124.0" text="FECHA EMISIÓN"/>
+      </columns>
+    </TableView>
+    <Label layoutX="10.0" layoutY="75.0" text="Solicitudes hechas por los cleintes:"/>
+    <Label layoutX="106.0" text="SOLICITUDES DE CITAS">
+        <font>
+          <Font name="System Bold" size="20.0"/>
+        </font>
+    </Label>
+    <Hyperlink layoutX="10.0" layoutY="4.0" onAction="#onVolverLinkCLick" text="Volver" underline="true"/>
+    <Button layoutX="323.0" layoutY="62.0" mnemonicParsing="false" onAction="#onAsignarButtonCLick" prefHeight="26.0"
+            prefWidth="94.0" text="Asignar Cita"/>
+</AnchorPane>

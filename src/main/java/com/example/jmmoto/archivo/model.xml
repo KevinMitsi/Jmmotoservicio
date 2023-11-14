@@ -10,62 +10,231 @@
      <object class="java.util.ArrayList"/>
     </void>
     <void property="citas">
-     <object class="java.util.ArrayList"/>
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="com.example.jmmoto.model.cita.Cita" id="Cita0">
+        <void property="cliente">
+         <object class="com.example.jmmoto.model.persona.Cliente" id="Cliente0">
+          <void property="apellido">
+           <string>Garcia</string>
+          </void>
+          <void property="cedula">
+           <string>1004917999</string>
+          </void>
+          <void property="citas">
+           <object class="java.util.ArrayList">
+            <void method="add">
+             <object idref="Cita0"/>
+            </void>
+           </object>
+          </void>
+          <void property="cuenta">
+           <object class="com.example.jmmoto.model.cuenta.Cuenta" id="Cuenta0">
+            <void property="email">
+             <string>kevina.garciaa@uqvirtual.edu.co</string>
+            </void>
+            <void property="password">
+             <string>An@1</string>
+            </void>
+            <void property="urlFoto">
+             <string>src/main/java/com/example/jmmoto/profilePhotos/trashhh.png</string>
+            </void>
+            <void property="usuario">
+             <string>Kevinmitsi</string>
+            </void>
+           </object>
+          </void>
+          <void property="direccion">
+           <string>Manzana 5 cs 5</string>
+          </void>
+          <void property="email">
+           <string>kevina.garciaa@uqvirtual.edu.co</string>
+          </void>
+          <void property="estadoCivil">
+           <string>Union libre</string>
+          </void>
+          <void property="fechaNacimiento">
+           <string>2003-08-24</string>
+          </void>
+          <void property="genero">
+           <string>Masculino</string>
+          </void>
+          <void property="id">
+           <string>1279362812</string>
+          </void>
+          <void property="motos">
+           <object class="java.util.ArrayList">
+            <void method="add">
+             <object class="com.example.jmmoto.model.moto.Moto" id="Moto0">
+              <void property="cilindraje">
+               <string>782</string>
+              </void>
+              <void property="id">
+               <string>1934577562</string>
+              </void>
+              <void property="kilometraje">
+               <string>150000</string>
+              </void>
+              <void property="marca">
+               <string>Kawasaki</string>
+              </void>
+              <void property="modelo">
+               <string>2022</string>
+              </void>
+              <void property="placa">
+               <string>RIY40E</string>
+              </void>
+              <void property="tipoMotor">
+               <string>4 TIEMPOS</string>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void property="nombre">
+           <string>Kevin</string>
+          </void>
+          <void property="numeroTelefono">
+           <string>3196635068</string>
+          </void>
+          <void property="solicitudes">
+           <object class="java.util.ArrayList"/>
+          </void>
+         </object>
+        </void>
+        <void property="estadoCita">
+         <string>Finalizado</string>
+        </void>
+        <void property="fecha">
+         <string>2023-11-14</string>
+        </void>
+        <void property="fechaCreacion">
+         <string>2023-11-14</string>
+        </void>
+        <void property="hora">
+         <string>7.30</string>
+        </void>
+        <void property="id">
+         <string>-127498100</string>
+        </void>
+        <void property="moto">
+         <object idref="Moto0"/>
+        </void>
+        <void property="notasAdmin">
+         <object class="java.util.ArrayList">
+          <void method="add">
+           <string>nuevo</string>
+          </void>
+         </object>
+        </void>
+        <void property="servicios">
+         <object class="java.util.ArrayList">
+          <void method="add">
+           <object class="com.example.jmmoto.model.productos.Servicio" id="Servicio0">
+            <void property="categorias">
+             <string>Mantenimiento General</string>
+            </void>
+            <void property="duracion">
+             <string>5 horas</string>
+            </void>
+            <void property="especificaciones">
+             <string>En el mantenimiento se realiza un ajuste a todas las partes móviles de la motocicleta, se cambia filtro de aire de aceite, y también aceite</string>
+            </void>
+            <void property="estado">
+             <string>creado</string>
+            </void>
+            <void property="id">
+             <string>-2071027909</string>
+            </void>
+            <void property="nombre">
+             <string>Mantenimiento Tipo</string>
+            </void>
+            <void property="precio">
+             <double>150000.0</double>
+            </void>
+            <void property="rutaImagen">
+             <string>src/main/java/com/example/jmmoto/servicesImgs/mantnimiento.png</string>
+            </void>
+           </object>
+          </void>
+          <void method="add">
+           <null/>
+          </void>
+         </object>
+        </void>
+        <void property="tecnico">
+         <object class="com.example.jmmoto.model.persona.Tecnico" id="Tecnico0">
+          <void property="apellido">
+           <string>Ocampo</string>
+          </void>
+          <void property="cedula">
+           <string>54651</string>
+          </void>
+          <void property="cuenta">
+           <object class="com.example.jmmoto.model.cuenta.Cuenta" id="Cuenta1">
+            <void property="email">
+             <string>asda@gmail.com</string>
+            </void>
+            <void property="password">
+             <string>andres123</string>
+            </void>
+            <void property="personaAsociada">
+             <object idref="Tecnico0"/>
+            </void>
+            <void property="urlFoto">
+             <string>/com/example/jmmoto/user.png</string>
+            </void>
+            <void property="usuario">
+             <string>andreso</string>
+            </void>
+           </object>
+          </void>
+          <void property="email">
+           <string>asda@gmail.com</string>
+          </void>
+          <void property="estadoCivil">
+           <string>Union Libre</string>
+          </void>
+          <void property="experienciaLaboral">
+           <string>si</string>
+          </void>
+          <void property="fechaContratacion">
+           <string>2023-10-30</string>
+          </void>
+          <void property="fechaNacimiento">
+           <string>DatePicker[id=dpFechaNacimiento, styleClass=combo-box-base date-picker rounded-textfield]</string>
+          </void>
+          <void property="genero">
+           <string>Masculino</string>
+          </void>
+          <void property="herramientas">
+           <object class="java.util.ArrayList"/>
+          </void>
+          <void property="horarioTrabajo">
+           <string>7</string>
+          </void>
+          <void property="id">
+           <string>1618502116</string>
+          </void>
+          <void property="nombre">
+           <string>Andres</string>
+          </void>
+          <void property="numeroTelefono">
+           <string>64554</string>
+          </void>
+          <void property="salario">
+           <double>4500.0</double>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
     </void>
     <void property="clientes">
      <object class="java.util.ArrayList">
       <void method="add">
-       <object class="com.example.jmmoto.model.persona.Cliente" id="Cliente0">
-        <void property="apellido">
-         <string>Garcia</string>
-        </void>
-        <void property="cedula">
-         <string>1004917999</string>
-        </void>
-        <void property="cuenta">
-         <object class="com.example.jmmoto.model.cuenta.Cuenta" id="Cuenta0">
-          <void property="email">
-           <string>kevina.garciaa@uqvirtual.edu.co</string>
-          </void>
-          <void property="password">
-           <string>An@1</string>
-          </void>
-          <void property="urlFoto">
-           <string>src/main/java/com/example/jmmoto/profilePhotos/trashhh.png</string>
-          </void>
-          <void property="usuario">
-           <string>Kevinmitsi</string>
-          </void>
-         </object>
-        </void>
-        <void property="direccion">
-         <string>Manzana 5 cs 5</string>
-        </void>
-        <void property="email">
-         <string>kevina.garciaa@uqvirtual.edu.co</string>
-        </void>
-        <void property="estadoCivil">
-         <string>Union libre</string>
-        </void>
-        <void property="fechaNacimiento">
-         <string>2003-08-24</string>
-        </void>
-        <void property="genero">
-         <string>Masculino</string>
-        </void>
-        <void property="id">
-         <string>1279362812</string>
-        </void>
-        <void property="motos">
-         <object class="java.util.ArrayList"/>
-        </void>
-        <void property="nombre">
-         <string>Kevin</string>
-        </void>
-        <void property="numeroTelefono">
-         <string>3196635068</string>
-        </void>
-       </object>
+       <object idref="Cliente0"/>
       </void>
       <void method="add">
        <object class="com.example.jmmoto.model.persona.Cliente" id="Cliente1">
@@ -76,7 +245,7 @@
          <string>109348382</string>
         </void>
         <void property="cuenta">
-         <object class="com.example.jmmoto.model.cuenta.Cuenta" id="Cuenta1">
+         <object class="com.example.jmmoto.model.cuenta.Cuenta" id="Cuenta2">
           <void property="email">
            <string>ryrivera@uniquindio.edu.co</string>
           </void>
@@ -128,6 +297,93 @@
        <object idref="Cuenta0"/>
       </void>
       <void method="add">
+       <object idref="Cuenta2"/>
+      </void>
+      <void method="add">
+       <object class="com.example.jmmoto.model.cuenta.Cuenta" id="Cuenta3">
+        <void property="email">
+         <string>grasse@gmail.com</string>
+        </void>
+        <void property="password">
+         <string>grasse123</string>
+        </void>
+        <void property="personaAsociada">
+         <object class="com.example.jmmoto.model.persona.Recepcionista" id="Recepcionista0">
+          <void property="apellido">
+           <string>Aguirre</string>
+          </void>
+          <void property="cedula">
+           <string>41987115</string>
+          </void>
+          <void property="cuenta">
+           <object idref="Cuenta3"/>
+          </void>
+          <void property="email">
+           <string>grasse@gmail.com</string>
+          </void>
+          <void property="estadoCivil">
+           <string>Casad@</string>
+          </void>
+          <void property="experienciaLaboral">
+           <string>si</string>
+          </void>
+          <void property="fechaNacimiento">
+           <string>DatePicker[id=dpFechaNacimiento, styleClass=combo-box-base date-picker rounded-textfield]</string>
+          </void>
+          <void property="genero">
+           <string>Femenino</string>
+          </void>
+          <void property="horario">
+           <string>7</string>
+          </void>
+          <void property="id">
+           <string>961</string>
+          </void>
+          <void property="nivelEducacion">
+           <string>media</string>
+          </void>
+          <void property="nombre">
+           <string>Grasse</string>
+          </void>
+          <void property="numeroTelefono">
+           <string>3128637996</string>
+          </void>
+          <void property="rol">
+           <object class="com.example.jmmoto.model.Rol.RolAdministrativo">
+            <void property="area">
+             <string>recepción</string>
+            </void>
+            <void property="descripcion">
+             <string>Recepcion de clientes/Salidas de moto y citas</string>
+            </void>
+            <void property="id">
+             <string>29791</string>
+            </void>
+            <void property="nivelAcceso">
+             <string>completo</string>
+            </void>
+            <void property="nombre">
+             <string>administrativo</string>
+            </void>
+            <void property="responsabilidadClave">
+             <string>entradas y salidas</string>
+            </void>
+           </object>
+          </void>
+          <void property="salario">
+           <double>4.6415165E7</double>
+          </void>
+         </object>
+        </void>
+        <void property="urlFoto">
+         <string>/com/example/jmmoto/user.png</string>
+        </void>
+        <void property="usuario">
+         <string>Grasse</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
        <object idref="Cuenta1"/>
       </void>
      </object>
@@ -164,6 +420,12 @@
       <void method="add">
        <object idref="Cliente1"/>
       </void>
+      <void method="add">
+       <object idref="Recepcionista0"/>
+      </void>
+      <void method="add">
+       <object idref="Tecnico0"/>
+      </void>
      </object>
     </void>
     <void property="procedimientos">
@@ -173,42 +435,42 @@
      <object class="com.example.jmmoto.model.persona.Propietario"/>
     </void>
     <void property="recepcionistas">
-     <object class="java.util.ArrayList"/>
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object idref="Recepcionista0"/>
+      </void>
+     </object>
     </void>
     <void property="servicioList">
      <object class="java.util.ArrayList">
       <void method="add">
-       <object class="com.example.jmmoto.model.productos.Servicio">
-        <void property="categorias">
-         <string>Mantenimiento General</string>
+       <object idref="Servicio0"/>
+      </void>
+     </object>
+    </void>
+    <void property="solicitudCitas">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="com.example.jmmoto.model.cita.SolicitudCita">
+        <void property="emisor">
+         <object idref="Cliente0"/>
         </void>
-        <void property="duracion">
-         <string>5 horas</string>
+        <void property="fecha">
+         <string>2023-11-13</string>
         </void>
-        <void property="especificaciones">
-         <string>En el mantenimiento se realiza un ajuste a todas las partes móviles de la motocicleta, se cambia filtro de aire de aceite, y también aceite</string>
-        </void>
-        <void property="estado">
-         <string>creado</string>
-        </void>
-        <void property="id">
-         <string>-2071027909</string>
-        </void>
-        <void property="nombre">
-         <string>Mantenimiento Tipo</string>
-        </void>
-        <void property="precio">
-         <double>150000.0</double>
-        </void>
-        <void property="rutaImagen">
-         <string>src/main/java/com/example/jmmoto/servicesImgs/mantnimiento.png</string>
+        <void property="motoCliente">
+         <object idref="Moto0"/>
         </void>
        </object>
       </void>
      </object>
     </void>
     <void property="tecnicos">
-     <object class="java.util.ArrayList"/>
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object idref="Tecnico0"/>
+      </void>
+     </object>
     </void>
     <void property="telefono">
      <string>310</string>

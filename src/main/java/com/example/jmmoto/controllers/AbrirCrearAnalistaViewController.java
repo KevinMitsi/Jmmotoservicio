@@ -37,6 +37,8 @@ public class AbrirCrearAnalistaViewController {
                 Cuenta cuenta = FactoryCuenta.createCuenta(tfUsuario.getText(),tfPassword.getText());
                 Analista analista = new Analista(tfNombre.getText(),tfApellido.getText(),tfCedula.getText(),String.valueOf(dpFechaNacimiento.getValue()),cbGenero.getValue(),tfTel.getText(),tfEmail.getText(),cbEstado.getValue(),Double.parseDouble(tfSalario.getText()),tfHorario.getText(),"ninguna",cuenta);
                 singleton.getSedes().agregarAnalista(analista);
+                Alerta.saltarAlertaError("Se ha agregado correctamente");
+                singleton.guardarResourceXML();
                 mainJm.abrirEmpleadosAdmin();
             } catch (Exception e) {
                 Alerta.saltarAlertaError(e.getMessage());

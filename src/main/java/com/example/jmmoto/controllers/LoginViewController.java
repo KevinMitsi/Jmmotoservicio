@@ -5,6 +5,7 @@ import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.sede.Sede;
 import com.example.jmmoto.threads.EmailThread;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -96,7 +97,7 @@ public class LoginViewController {
         EmailThread emailThread = new EmailThread("Código de seguridad","Hola usario : "+cuenta.getUsuario()+" "+"\nHemos recibido una solitud de inicio de sesion el: " + LocalDate.now()+"\nPara poder ingresar debes colocar el siguiente código en el campos de la aplicación: " + codigoSeguridad,cuenta.getEmail());
         emailThread.start();
         while (emailThread.isRunning()){
-            Alerta.saltarAlertaInformacion("Se está enviando correo electrónico");
+            Alerta.saltarAlertaAdvertencia("Se está enviando correo electrónico");
         }
         if (!emailThread.isRunning()){
             Alerta.saltarAlertaInformacion("Correo enviado con éxito");
@@ -119,5 +120,9 @@ public class LoginViewController {
         while (emailThread.isRunning()){
             Alerta.saltarAlertaInformacion("Se está enviando correo electrónico");
         }
+    }
+
+    public void onbutRecepClick() throws IOException {
+        main.inicializarLoginRecepcionista();
     }
 }

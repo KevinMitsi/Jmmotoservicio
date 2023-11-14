@@ -110,4 +110,10 @@ public class Servicio extends Producto implements Serializable {
     public int hashCode() {
         return Objects.hash(getNombre());
     }
+
+    @Override
+    public String toString() {
+        return
+               nombre + " precio=" + precio;
+    }
 }

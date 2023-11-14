@@ -172,4 +172,9 @@ public class Moto implements Serializable {
     public int hashCode() {
         return Objects.hash(getPlaca(), getNumeroChasis());
     }
+
+    @Override
+    public String toString() {
+        return marca + " "+placa;
+    }
 }

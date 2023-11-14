@@ -1,6 +1,7 @@
 package com.example.jmmoto.model.persona;
 
 import com.example.jmmoto.model.Rol.Rol;
+import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.herramienta.Herramienta;
 
 import java.io.Serializable;
@@ -16,17 +17,18 @@ public class Tecnico extends Persona implements Serializable {
     private String estadoEmpleo;
 
     private List<Herramienta>herramientas;
+    private  Cuenta cuenta;
     Rol rol;
 
-    public Tecnico(String nombre, String apellido, String cedula, String fechaNacimiento, String genero, String numeroTelefono, String email, String estadoCivil, String id, String fechaContratacion, String experienciaLaboral, String horarioTrabajo, double salario, String estadoEmpleo) {
+    public Tecnico(String nombre, String apellido, String cedula, String fechaNacimiento, String genero, String numeroTelefono, String email, String estadoCivil, String fechaContratacion, String experienciaLaboral, String horarioTrabajo, double salario, Cuenta cuenta) {
         super(nombre, apellido, cedula, fechaNacimiento, genero, numeroTelefono, email, estadoCivil);
-        this.id = id;
         this.fechaContratacion = fechaContratacion;
         this.experienciaLaboral = experienciaLaboral;
         this.horarioTrabajo = horarioTrabajo;
         this.salario = salario;
-        this.estadoEmpleo = estadoEmpleo;
         this.herramientas=new ArrayList<>();
+        this.id = String.valueOf(hashCode());
+        this.cuenta = cuenta;
         this.rol=null;
     }
 
@@ -41,6 +43,14 @@ public class Tecnico extends Persona implements Serializable {
     @Override
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
     }
 
     public String getFechaContratacion() {
