@@ -25,13 +25,15 @@ public class AgregarHerramientaViewController {
         this.main = mainJm;
     }
 
-    public void onVolverLinkClick(ActionEvent event) {
+    public void onVolverLinkClick(ActionEvent event) throws IOException {
+        main.abrirInventarioAdmin();
     }
 
     public void onAgregarButtonClick(ActionEvent event) throws IOException {
         if(verificarCampos()){
             singleton.getSedes().getInventario().getHerramientas().add(new Herramienta(tfNumeroSerie.getText(), tfNombre.getText(),tfTipo.getText(),tfMarca.getText(),"NUEVO",String.valueOf(dpAdquisicion.getValue()),true));
             Alerta.saltarAlertaInformacion("Se ha agregado correctamente esta herramienta a su inventario");
+            singleton.guardarResourceXML();
             main.abrirInventarioAdmin();
         }
         else{
