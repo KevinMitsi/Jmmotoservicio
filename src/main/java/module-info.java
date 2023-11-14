@@ -6,6 +6,7 @@ module com.example.jmmoto {
     requires java.mail;
 
 
+
     opens com.example.jmmoto to javafx.fxml;
     exports com.example.jmmoto;
 
