@@ -320,6 +320,7 @@ public class Sede implements Serializable {
         }
         else{
             analistas.add(analista);
+            personas.add(analista);
         }
     }
 
@@ -329,6 +330,43 @@ public class Sede implements Serializable {
         }
         else{
             servicioList.add(creado);
+        }
+    }
+
+    public void agregarTecnico(Tecnico tecnico) throws Exception {
+        if (tecnicos.contains(tecnico)){
+            throw new Exception("Este tecnico ya está creado");
+        }
+        else{
+            tecnicos.add(tecnico);
+            personas.add(tecnico);
+            cuentas.add(tecnico.getCuenta());
+        }
+
+    }
+
+    public void agregarRecepcionista(Recepcionista recepcionista) throws Exception {
+        if (recepcionistas.contains(recepcionista)){
+            throw new Exception("Este recepcionista ya está creado");
+        }
+        else{
+            recepcionistas.add(recepcionista);
+            personas.add(recepcionista);
+            cuentas.add(recepcionista.getCuenta());
+        }
+    }
+
+    public Recepcionista retornarRecepcionista(Cuenta cuenta) throws Exception {
+        if (verificarCuenta(cuenta)){
+            for (Recepcionista cliente: recepcionistas) {
+                if (cliente.getCuenta().equals(cuenta)){
+                    return cliente;
+                }
+            }
+            return null;
+        }
+        else {
+            throw new Exception("Usuario no encontrado");
         }
     }
 }

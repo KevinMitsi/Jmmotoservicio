@@ -1,7 +1,10 @@
-.rounded-textfield {
+.rounded-textfield,
+.date-picker,
+.combo-box {
     -fx-background-radius: 30;
-    -fx-border-width: 0;
-    -fx-background-color: #EDEDED;
+    -fx-background-color: #FFFFFF;
+    -fx-border-width: 1; /* Ancho del borde */
+     fx-border-color: #BDBDBD; /* Color del borde */
     -fx-prompt-text-fill: gray;
     -fx-font-size: 14px;
 }

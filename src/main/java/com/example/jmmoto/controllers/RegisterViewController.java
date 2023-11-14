@@ -7,7 +7,6 @@ import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.sede.Sede;
 import com.example.jmmoto.threads.EmailThread;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -39,7 +38,7 @@ public class RegisterViewController {
     public PasswordField pfPassword;
     public TextField tfRutaArchivo;
 
-    public void handleFileSelect(ActionEvent actionEvent) {
+    public void handleFileSelect() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivos de imagen", "*.jpg", "*.jpeg", "*.png", "*.gif"));
         File selectedFile = fileChooser.showOpenDialog(null);
@@ -60,7 +59,7 @@ public class RegisterViewController {
         }
     }
 
-    public void enviarButtonClick(ActionEvent actionEvent) throws Exception {
+    public void enviarButtonClick() {
         try{
             verificarCampos();
             enviarMensajeCorreo();
@@ -68,6 +67,8 @@ public class RegisterViewController {
             cuenta.setUrlFoto(tfRutaArchivo.getText());
             cuenta.setEmail(tfEmail.getText());
             Cliente cliente= FactoryPersona.createCliente(tfNombre.getText(),tfApellido.getText(),tfCedula.getText(),String.valueOf(dpFecha.getValue()),cbGenero.getValue(),tfTelefono.getText(),tfEmail.getText(),cbEstadoCivil.getValue(),tfDireccion.getText(),cuenta);
+            cuenta.setPersonaAsociada(cliente);
+            cliente.setCuenta(cuenta);
             sede.agregarCiente(cliente);
             domai.guardarResourceXML();
             domai.guardarResourceBinario();

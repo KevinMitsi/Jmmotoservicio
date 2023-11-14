@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="163.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.RecepcionistaPanelViewController">
+    <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="2.0" prefHeight="30.0" prefWidth="600.0" text="Bienvenido" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font name="System Bold" size="23.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="52.0" prefHeight="18.0" prefWidth="600.0" text="¿Qué deseas hacer hoy?" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="17.0" />
+            </font>
+        </Label>
+        <Button layoutX="2.0" layoutY="107.0" mnemonicParsing="false" onAction="#onCitasClick" prefHeight="26.0" prefWidth="600.0" text="Citas" />
+        <Hyperlink layoutX="14.0" layoutY="8.0" onAction="#onSalirLinkClick" text="Salir" textAlignment="CENTER" underline="true" />
+    </children>
+
+</AnchorPane>

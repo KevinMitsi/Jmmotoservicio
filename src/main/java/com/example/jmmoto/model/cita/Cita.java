@@ -1,7 +1,9 @@
 package com.example.jmmoto.model.cita;
 
+import com.example.jmmoto.model.moto.Moto;
 import com.example.jmmoto.model.persona.Cliente;
 import com.example.jmmoto.model.persona.Tecnico;
+import com.example.jmmoto.model.productos.Repuesto;
 import com.example.jmmoto.model.productos.Servicio;
 
 import java.io.Serializable;
@@ -12,7 +14,9 @@ import java.util.Objects;
 public class Cita implements Serializable {
     private Cliente cliente;
     private Tecnico tecnico;
+    private Moto moto;
     private List<Servicio>servicios;
+    private List<Repuesto>repuestos;
     private String id;
     private String fecha;
     private String hora;
@@ -21,7 +25,8 @@ public class Cita implements Serializable {
     private List<String> notasCliente;
     private List<String> notasAdmin;
 
-    public Cita(Cliente cliente, Tecnico tecnico, String fecha, String hora, String estadoCita, String fechaCreacion) {
+    public Cita(Cliente cliente, List<String>notasCliente,Tecnico tecnico, String fecha, String hora, String estadoCita, String fechaCreacion, Moto moto) {
+        this.moto = moto;
         this.cliente = cliente;
         this.tecnico = tecnico;
         this.servicios = new ArrayList<>();
@@ -30,8 +35,9 @@ public class Cita implements Serializable {
         this.hora = hora;
         this.estadoCita = estadoCita;
         this.fechaCreacion = fechaCreacion;
+        this.repuestos = new ArrayList<>();
         this.notasAdmin=new ArrayList<>();
-        this.notasCliente=new ArrayList<>();
+        this.notasCliente=notasCliente;
     }
 
     public Cita() {
@@ -39,6 +45,14 @@ public class Cita implements Serializable {
 
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public Moto getMoto() {
+        return moto;
+    }
+
+    public void setMoto(Moto moto) {
+        this.moto = moto;
     }
 
     public void setCliente(Cliente cliente) {

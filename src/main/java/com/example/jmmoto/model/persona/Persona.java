@@ -105,7 +105,7 @@ public class Persona implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Persona persona)) return false;
-        return Objects.equals(getCedula(), persona.getCedula()) && Objects.equals(getNumeroTelefono(), persona.getNumeroTelefono());
+        return Objects.equals(getCedula(), persona.getCedula());
     }
 
     @Override

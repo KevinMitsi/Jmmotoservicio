@@ -1,5 +1,6 @@
 package com.example.jmmoto.model.cuenta;
 
+import com.example.jmmoto.model.persona.Persona;
 import javafx.scene.image.Image;
 
 import java.io.Serializable;
@@ -11,6 +12,7 @@ public class Cuenta implements Serializable {
     private String email;
     private Image foto;
     private String urlFoto;
+    private Persona personaAsociada;
 
     public Cuenta(String usuario, String password) {
         this.usuario = usuario;
@@ -20,6 +22,14 @@ public class Cuenta implements Serializable {
 
 
     public Cuenta() {
+    }
+
+    public Persona getPersonaAsociada() {
+        return personaAsociada;
+    }
+
+    public void setPersonaAsociada(Persona personaAsociada) {
+        this.personaAsociada = personaAsociada;
     }
 
     public String getUsuario() {

@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MotosClienteViewController {
     MainJm mainJm;
@@ -30,6 +31,7 @@ public class MotosClienteViewController {
 
     public void onVolverLinkClick() throws IOException {
         mainJm.abrirPanelCliente(cliente);
+        singleton.guardarResourceXML();
     }
 
     public void onEliminarButtonClick() {
@@ -37,6 +39,7 @@ public class MotosClienteViewController {
             try {
                 cliente.eliminarMoto(motoSeleccioanda);
                 tableMoto.refresh();
+                singleton.guardarResourceXML();
             }catch (Exception e){
                 Alerta.saltarAlertaError(e.getMessage());
             }
@@ -44,12 +47,15 @@ public class MotosClienteViewController {
     }
 
     public void onAgregarButtonCLick() throws IOException {
-        mainJm.abrirAgregarMotoCliente(cliente);
+        mainJm.abrirAgregarMotoCliente(cliente,false);
     }
 
     public void setMain(MainJm main, Cliente cliente){
         this.mainJm=main;
         this.cliente=cliente;
+        if (cliente.getMotos()==null){
+            cliente.setMotos(new ArrayList<>());
+        }
         fillTable();
     }
 

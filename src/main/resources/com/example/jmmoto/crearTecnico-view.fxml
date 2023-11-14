@@ -1,14 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.jmmoto.controllers.CrearTecnicoViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="515.0" prefWidth="613.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.CrearTecnicoViewController">
+    <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="253.0" layoutY="14.0" text="Nuevo Técnico" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfNombre" layoutX="14.0" layoutY="74.0" prefHeight="26.0" prefWidth="281.0" promptText="Ingrese el nombre del nuevo técnico" styleClass="rounded-textfield" />
+        <TextField fx:id="tfApellido" layoutX="13.0" layoutY="121.0" prefHeight="26.0" prefWidth="282.0" promptText="Ingrese el apellido del nuevo técnico" styleClass="rounded-textfield" />
+        <TextField fx:id="tfTel" layoutX="316.0" layoutY="74.0" prefHeight="26.0" prefWidth="282.0" promptText="Ingrese el teléfono del nuevo técnico" styleClass="rounded-textfield" />
+        <TextField fx:id="tfCedula" layoutX="13.0" layoutY="168.0" prefHeight="26.0" prefWidth="282.0" promptText="Ingrese la cédula del nuevo técnico" styleClass="rounded-textfield" />
+        <TextField fx:id="tfHorario" layoutX="316.0" layoutY="254.0" prefHeight="26.0" prefWidth="282.0" promptText="Escriba un horario de trabajo para el técnico" styleClass="rounded-textfield" />
+        <TextField fx:id="tfSalario" layoutX="316.0" layoutY="212.0" prefHeight="26.0" prefWidth="282.0" promptText="Ingrese el salario del nuevo técnico" styleClass="rounded-textfield" />
+        <TextField fx:id="tfEmail" layoutX="316.0" layoutY="121.0" prefHeight="26.0" prefWidth="282.0" promptText="Ingrese el email del nuevo técnico" styleClass="rounded-textfield" />
+        <Label layoutX="130.0" layoutY="56.0" text="Nombre:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <Label layoutX="130.0" layoutY="100.0" text="Apellido:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <Label layoutX="131.0" layoutY="147.0" text="Cédula:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <DatePicker fx:id="dpFechaNacimiento" layoutX="13.0" layoutY="213.0" prefHeight="26.0" prefWidth="282.0" promptText="Ingrese la fecha de nacimiento del técnico" styleClass="rounded-textfield" />
+        <Label layoutX="94.0" layoutY="194.0" text="Fecha de nacimiento:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <ComboBox fx:id="cbGenero" layoutX="13.0" layoutY="254.0" prefHeight="26.0" prefWidth="282.0" promptText="Elija un género" styleClass="rounded-textfield" />
+        <Label layoutX="134.0" layoutY="238.0" text="Género:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <Label layoutX="434.0" layoutY="56.0" text="Teléfono:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <Label layoutX="441.0" layoutY="100.0" text="Email:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <Label layoutX="426.0" layoutY="147.0" text="Estado civil:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <ComboBox fx:id="cbEstado" layoutX="316.0" layoutY="168.0" prefHeight="26.0" prefWidth="282.0" promptText="Elija un estado civil" styleClass="rounded-textfield" />
+        <Label layoutX="439.0" layoutY="194.0" text="Salario:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <Label layoutX="436.0" layoutY="238.0" text="Horario:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="185.0" layoutY="345.0" text="Crea una cuenta para este técnico" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="91.0" layoutY="287.0" text="Fecha de Contratación:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <DatePicker fx:id="dpFechaContratacion" layoutX="14.0" layoutY="305.0" prefHeight="26.0" prefWidth="281.0" promptText="Ingrese la fecha de contratación del técnico" styleClass="rounded-textfield" />
+        <Label layoutX="404.0" layoutY="287.0" text="Experiencia Laboral:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <TextField fx:id="tfExperienciaLaboral" layoutX="317.0" layoutY="305.0" prefHeight="26.0" prefWidth="281.0" promptText="Ingrese la experiencia laboral del técnico" styleClass="rounded-textfield" />
+        <Button fx:id="btnAgregar" layoutX="273.0" layoutY="483.0" mnemonicParsing="false" onAction="#onAgregarButtonCLick" styleClass="login-button" text="Agregar" />
+        <Hyperlink fx:id="hlVolver" layoutX="13.0" layoutY="3.0" onAction="#onVolverButtonCLick" text="Volver" textAlignment="CENTER" underline="true" />
+      <TextField fx:id="tfPassword" layoutX="166.0" layoutY="433.0" prefHeight="26.0" prefWidth="281.0" promptText="ingrese la cpntraseña" styleClass="rounded-textfield" />
+      <TextField fx:id="tfUsuario" layoutX="166.0" layoutY="388.0" prefHeight="26.0" prefWidth="281.0" promptText="Ingrese el usuario" styleClass="rounded-textfield" />
+      <Label layoutX="283.0" layoutY="370.0" text="Usuario">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="414.0" text="Contraseña">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+    </children>
 </AnchorPane>

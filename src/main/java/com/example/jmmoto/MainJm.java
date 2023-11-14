@@ -2,6 +2,8 @@ package com.example.jmmoto;
 
 import com.example.jmmoto.controllers.*;
 
+import com.example.jmmoto.model.cita.Cita;
+import com.example.jmmoto.model.cita.SolicitudCita;
 import com.example.jmmoto.model.herramienta.Herramienta;
 import com.example.jmmoto.model.persona.*;
 import com.example.jmmoto.model.productos.Repuesto;
@@ -11,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -156,7 +159,17 @@ public class MainJm extends Application {
 
     }
 
-    public void abrirClientesAdmin() {
+    public void abrirClientesAdmin() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("empleados-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(MainJm.class.getResource("styles.css")).toExternalForm());
+        EmpleadosViewController controller = fxmlLoader.getController();
+        controller.setMain(this);
+        stage.setTitle("Tus servicios");
+        stage.setScene(scene);
+        stage.show();
+
+
     }
 
     public void ampliarHerramienta(Herramienta herramientaSeleccionada) throws IOException {
@@ -258,18 +271,6 @@ public class MainJm extends Application {
         stage.show();
     }
 
-    public void abrirAmpliarRecepcionista(Recepcionista recepcionistaSeleccionado) {
-    }
-
-    public void abrirAmpliarAnalista(Analista analistaSeleccionado) {
-    }
-
-    public void abrirAmpliarAdminRedes(AdminRedesSoc adminRedesSocSeleccionado) {
-    }
-
-    public void abrirAmpliarTecnico(Tecnico tecnicoSeleccionado) {
-    }
-
     public void abrirAmpliacionServicio(Cliente clienteLogeado, Servicio servicio) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("ampliarServicioView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -282,11 +283,18 @@ public class MainJm extends Application {
     }
 
     public void abrirAgendarCitaCLiente(Cliente clienteLogueado, Servicio servicioSeleccionado) throws IOException{
-
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("agendarClienteCita-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(MainJm.class.getResource("styles.css")).toExternalForm());
+        AgendarClienteCitaViewController controller = fxmlLoader.getController();
+        controller.setMain(this,clienteLogueado,servicioSeleccionado);
+        stage.setTitle("Agendar cita");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void abrirCitasCliente(Cliente clienteLogeado) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("clientesCitas-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("clienteCitas-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(Objects.requireNonNull(MainJm.class.getResource("styles.css")).toExternalForm());
         ClienteCitasViewController controller = fxmlLoader.getController();
@@ -307,7 +315,81 @@ public class MainJm extends Application {
         stage.show();
     }
 
-    public void abrirAgregarMotoCliente(Cliente clienteLogeado) throws IOException {
+    public void abrirAgregarMotoCliente(Cliente clienteLogeado, boolean panel) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("agregarMotoCliente-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(MainJm.class.getResource("styles.css")).toExternalForm());
+        AgregarMotoClienteViewController controller = fxmlLoader.getController();
+        controller.setMain(this,clienteLogeado,panel);
+        stage.setTitle("Agregar moto");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirAmpliarSolicitud(SolicitudCita solicitudSeleccionada) throws  IOException{
+    }
+
+    public void inicializarLoginRecepcionista() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("loginRView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(MainJm.class.getResource("styles.css")).toExternalForm());
+        LoginRViewController controller = fxmlLoader.getController();
+        controller.setMain(this);
+        stage.setTitle("Bienvenido a Jmmotoservicio");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirPanelRecepcionista(Recepcionista recepcionista) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("recepcionistaPanel-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(MainJm.class.getResource("styles.css")).toExternalForm());
+        RecepcionistaPanelViewController controller = fxmlLoader.getController();
+        controller.setMain(this,recepcionista);
+        stage.setTitle("Bienvenid@ "+ recepcionista.getNombre());
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirCitasRecep(Recepcionista recepcionistaLoggged) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("citasRecep-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(MainJm.class.getResource("styles.css")).toExternalForm());
+        CitasRecepViewController controller = fxmlLoader.getController();
+        controller.setMain(this,recepcionistaLoggged);
+        stage.setTitle("Citas");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    public void abrirAgendarCitaRecep(Recepcionista recepcionista, SolicitudCita solicitudSeleccionada) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("agendarRecep-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(MainJm.class.getResource("styles.css")).toExternalForm());
+        AgendarRecepViewController controller = fxmlLoader.getController();
+        controller.setMain(this,recepcionista,solicitudSeleccionada);
+        stage.setTitle("Citas");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirCrearFactura(Recepcionista recepcionista, Cita citaSeleccionada) {
+        crearFactura(recepcionista,citaSeleccionada);
+    }
+
+    private void crearFactura(Recepcionista recepcionista, Cita citaSeleccionada) {
+    }
+
+    public void expandirCita(Recepcionista recepcionista, Cita citaSeleccionada) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("expandirCita-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(MainJm.class.getResource("styles.css")).toExternalForm());
+        ExpandirCitaViewController controller = fxmlLoader.getController();
+        controller.setMain(this,recepcionista,citaSeleccionada);
+        stage.setTitle("Citas");
+        stage.setScene(scene);
+        stage.show();
 
     }
 }

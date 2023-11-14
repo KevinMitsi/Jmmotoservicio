@@ -5,8 +5,10 @@ import com.example.jmmoto.model.cita.Cita;
 import com.example.jmmoto.model.cita.SolicitudCita;
 import com.example.jmmoto.model.cuenta.Cuenta;
 import com.example.jmmoto.model.moto.Moto;
+import com.example.jmmoto.model.productos.Servicio;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -73,19 +75,6 @@ public class Cliente extends Persona implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Cliente cliente)) return false;
-        if (!super.equals(o)) return false;
-        return Objects.equals(getDireccion(), cliente.getDireccion()) && Objects.equals(getCuenta(), cliente.getCuenta());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getDireccion(), getCuenta());
-    }
-
-    @Override
     public String getId() {
         return id;
     }
@@ -115,4 +104,16 @@ public class Cliente extends Persona implements Serializable {
             Alerta.saltarAlertaInformacion("Se ha agregado correctamente la moto");
         }
     }
+
+    public SolicitudCita agendarCita(Moto moto,List<String>list) throws Exception {
+        SolicitudCita miSolcitud = new SolicitudCita(String.valueOf(LocalDate.now()),this,moto,list);
+        if (solicitudes.contains(miSolcitud)){
+            throw new Exception("Esta solicitud ya está creada");
+        }
+        solicitudes.add(miSolcitud);
+        return miSolcitud;
+    }
+
+
+
 }

@@ -14,6 +14,7 @@ import java.io.IOException;
 public class AgregarMotoClienteViewController {
     MainJm main;
     Cliente cliente;
+    ModelFactoryController singleton = ModelFactoryController.getInstance();
     boolean panel;
     public TextField tfMarca;
     public TextField tfPlaca;
@@ -29,6 +30,7 @@ public class AgregarMotoClienteViewController {
             try {
                 Moto moto = new Moto(tfPlaca.getText(), tfModelo.getText(), tfMarca.getText(), null, null, null, cbOpciones.getValue(), tfCilindraje.getText(), null, null, tfKilometraje.getText(), null, false, null);
                 cliente.agregarMoto(moto);
+                singleton.guardarResourceXML();
                 if (panel){
                     main.abrirPanelCliente(cliente);
                 }

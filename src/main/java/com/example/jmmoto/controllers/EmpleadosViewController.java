@@ -62,12 +62,6 @@ public class EmpleadosViewController {
             fillTable(tableTecnicos,observableListTecnico,singleton.getSedes().getTecnicos());
         }
     }
-    @FXML
-    public void onDragTecnicoItem() {
-        if (tecnicoSeleccionado!=null){
-            main.abrirAmpliarTecnico(tecnicoSeleccionado);
-        }
-    }
 
     @FXML
     public void onTabAdminRedesChange() {
@@ -76,32 +70,17 @@ public class EmpleadosViewController {
         }
     }
     @FXML
-    public void onDragAdminRItem() {
-        if(tecnicoSeleccionado!=null){
-            main.abrirAmpliarAdminRedes(adminRedesSocSeleccionado);
-        }
-    }
-    @FXML
     public void onTabAnalistasChange() {
         if (tabButAnalistas.isSelected()){
             fillTable(tableAnalistas,observableListAnalista,singleton.getSedes().getAnalistas());
         }
     }
-    @FXML
-    public void onDragAnalistaItem() {
-        if (analistaSeleccionado!=null){
-            main.abrirAmpliarAnalista(analistaSeleccionado);
-        }
-    }
+
     @FXML
     public void onRecepcionistasChange() {
         if (tabButRecepcionistas.isSelected()){
             fillTable(tableRecepcionistas,observableListRecepcionista,singleton.getSedes().getRecepcionistas());
         }
-    }
-    @FXML
-    public void onDragRecepcionistaItem() {
-        main.abrirAmpliarRecepcionista(recepcionistaSeleccionado);
     }
     @FXML
     public void onNuevoEmpleadoClick() throws IOException {
@@ -118,10 +97,6 @@ public class EmpleadosViewController {
             main.abrirAgregarRecepcionista();
         }
 
-        else {
-            Alerta.saltarAlertaError("Debe seleccionar qué tipo de empleado desea crear");
-        }
-
     }
     @FXML
     public void onVolverLinkCLick() throws IOException {
@@ -130,17 +105,17 @@ public class EmpleadosViewController {
     @FXML
     void initialize(){
         colNombreTec.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colCeduTec.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colTelefTec.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colCeduAdminR.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colTelefAdminR.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
+        colCeduTec.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
+        colTelefTec.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNumeroTelefono()));
+        colCeduAdminR.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
+        colTelefAdminR.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNumeroTelefono()));
         colNombreAdminR.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
         colNombreAnalist.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colCeduAnalist.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colTelefAnalist.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
+        colCeduAnalist.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
+        colTelefAnalist.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNumeroTelefono()));
         colNombreRecep.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colCeduRecep.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colTelefRecep.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
+        colCeduRecep.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
+        colTelefRecep.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNumeroTelefono()));
         colSalarioTec.setCellValueFactory(cellData-> new SimpleObjectProperty<>(cellData.getValue().getSalario()));
         colSalarioAdminR.setCellValueFactory(cellData-> new SimpleObjectProperty<>(cellData.getValue().getSalario()));
         colSalarioAnalist.setCellValueFactory(cellData-> new SimpleObjectProperty<>(cellData.getValue().getSalario()));

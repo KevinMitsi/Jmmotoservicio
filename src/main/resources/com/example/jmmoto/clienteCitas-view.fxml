@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="322.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.ClienteCitasViewController">
+<AnchorPane prefHeight="322.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.ClienteCitasViewController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="194.0" layoutY="15.0" text="Tus citas y solicitudes">
          <font>
@@ -24,10 +18,9 @@
                <content>
                   <TableView fx:id="tableCitas" prefHeight="200.0" prefWidth="123.0">
                      <columns>
-                        <TableColumn fx:id="colFechaCIta" prefWidth="142.4000244140625" text="FECHA DE LA CITA" />
-                        <TableColumn fx:id="colMotoCita" prefWidth="133.5999755859375" text="MOTO DE LA CITA" />
-                        <TableColumn fx:id="colServicioCita" prefWidth="156.79998779296875" text="SERVICIO" />
-                        <TableColumn fx:id="colTecnicoCita" prefWidth="156.800048828125" text="TECNICO" />
+                        <TableColumn fx:id="colFechaCIta" prefWidth="167.19997549057007" text="FECHA DE LA CITA" />
+                        <TableColumn fx:id="colHora" prefWidth="231.20001220703125" text="HORA" />
+                        <TableColumn fx:id="colTecnicoCita" prefWidth="190.39999389648438" text="TECNICO" />
                      </columns>
                   </TableView>
                </content>
@@ -36,15 +29,14 @@
                <content>
                   <TableView fx:id="tableSoli" prefHeight="200.0" prefWidth="123.0">
                      <columns>
-                        <TableColumn fx:id="colFechaSoli" prefWidth="181.5999755859375" text="FECHA DE SOLICITUD" />
-                        <TableColumn fx:id="colMotoSoli" prefWidth="194.4000244140625" text="MOTO DE LA CITA" />
-                        <TableColumn fx:id="colServicioSoli" prefWidth="208.0" text="SERVICIO" />
+                        <TableColumn fx:id="colFechaSoli" prefWidth="290.59999990463257" text="FECHA DE SOLICITUD" />
+                        <TableColumn fx:id="colMotoSoli" prefWidth="297.3999938964844" text="MOTO DE LA CITA" />
                      </columns>
                   </TableView>
                </content>
             </Tab>
         </tabs>
       </TabPane>
-      <Label layoutX="139.0" layoutY="80.0" text="Aqui puedes apreciar las citas y solicitudes que has realizado" />
+      <Label layoutX="139.0" layoutY="80.0" text="Una vez aprobadas tus solicitudes pasarán a convertirse en citas:" />
    </children>
 </AnchorPane>
