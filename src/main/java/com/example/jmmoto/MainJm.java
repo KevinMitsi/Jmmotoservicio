@@ -1,7 +1,6 @@
 package com.example.jmmoto;
 
 import com.example.jmmoto.controllers.*;
-
 import com.example.jmmoto.model.cita.Cita;
 import com.example.jmmoto.model.cita.SolicitudCita;
 import com.example.jmmoto.model.herramienta.Herramienta;
@@ -12,8 +11,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -374,11 +371,15 @@ public class MainJm extends Application {
         stage.show();
     }
 
-    public void abrirCrearFactura(Recepcionista recepcionista, Cita citaSeleccionada) {
-        crearFactura(recepcionista,citaSeleccionada);
-    }
-
-    private void crearFactura(Recepcionista recepcionista, Cita citaSeleccionada) {
+    public void abrirCrearFactura(Recepcionista recepcionista, Cita citaSeleccionada) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJm.class.getResource("factura-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(MainJm.class.getResource("styles.css")).toExternalForm());
+        FacturaViewController controller = fxmlLoader.getController();
+        controller.setMain(this,recepcionista,citaSeleccionada);
+        stage.setTitle("Factura");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void expandirCita(Recepcionista recepcionista, Cita citaSeleccionada) throws IOException {

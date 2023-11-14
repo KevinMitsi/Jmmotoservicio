@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jmmoto.controllers.FacturaViewController">
+   <children>
+      <TableView fx:id="tableServicios" layoutX="66.0" layoutY="47.0" prefHeight="306.0" prefWidth="468.0">
+        <columns>
+          <TableColumn fx:id="colItem" prefWidth="152.79998779296875" text="ITEM" />
+          <TableColumn fx:id="colPrecio" prefWidth="315.20001220703125" text="PRECIO" />
+        </columns>
+      </TableView>
+      <Button layoutX="274.0" layoutY="361.0" mnemonicParsing="false" onAction="#onEnviar" text="Enviar" />
+      <Hyperlink layoutX="8.0" layoutY="2.0" onAction="#oonVolver" text="Volver" />
+   </children>
+</AnchorPane>

@@ -17,9 +17,6 @@ public class RecepcionistaPanelViewController {
         main.abrirCitasRecep(recepcionistaLoggged);
     }
 
-    public void onFacturas() throws IOException {
-        main.abrirFacturas(recepcionistaLoggged);
-    }
 
     public void onSalirLinkClick() throws IOException {
         main.inicializarLoginRecepcionista();
