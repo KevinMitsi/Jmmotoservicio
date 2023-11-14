@@ -34,6 +34,7 @@ public class AgregarProductoViewController {
             Repuesto repuesto = new Repuesto(tfNombre.getText(),tfCodeSAV.getText(),tfCategoria.getText(),taDescripcion.getText(),tfMarca.getText(),Double.parseDouble(tfPrecioCompra.getText()),Double.parseDouble(tfPrecioVenta.getText()),String.valueOf(dpFecha.getValue()));
             singleton.getSedes().getInventario().getProductos().add(repuesto);
             Alerta.saltarAlertaInformacion("Se ha agregado correctamente este repuesto a su inventario");
+            singleton.guardarResourceXML();
             main.abrirInventarioAdmin();
         }
         else{
