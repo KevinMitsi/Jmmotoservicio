@@ -165,7 +165,7 @@ public class Moto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Moto moto)) return false;
-        return Objects.equals(getPlaca(), moto.getPlaca()) || Objects.equals(getNumeroChasis(), moto.getNumeroChasis());
+        return Objects.equals(getPlaca(), moto.getPlaca());
     }
 
     @Override

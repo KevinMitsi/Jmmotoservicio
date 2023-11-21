@@ -214,6 +214,31 @@
             <void method="add">
              <object idref="Moto0"/>
             </void>
+            <void method="add">
+             <object class="com.example.jmmoto.model.moto.Moto" id="Moto1">
+              <void property="cilindraje">
+               <string>520</string>
+              </void>
+              <void property="id">
+               <string>-134430987</string>
+              </void>
+              <void property="kilometraje">
+               <string>3200</string>
+              </void>
+              <void property="marca">
+               <string>Kawasaki</string>
+              </void>
+              <void property="modelo">
+               <string>2022</string>
+              </void>
+              <void property="placa">
+               <string>YTR24E</string>
+              </void>
+              <void property="tipoMotor">
+               <string>4 TIEMPOS</string>
+              </void>
+             </object>
+            </void>
            </object>
           </void>
           <void property="nombre">
@@ -223,7 +248,21 @@
            <string>3196635068</string>
           </void>
           <void property="solicitudes">
-           <object class="java.util.ArrayList"/>
+           <object class="java.util.ArrayList">
+            <void method="add">
+             <object class="com.example.jmmoto.model.cita.SolicitudCita" id="SolicitudCita0">
+              <void property="emisor">
+               <object idref="Cliente0"/>
+              </void>
+              <void property="fecha">
+               <string>2023-11-21</string>
+              </void>
+              <void property="motoCliente">
+               <object idref="Moto1"/>
+              </void>
+             </object>
+            </void>
+           </object>
           </void>
          </object>
         </void>
@@ -490,7 +529,11 @@
      </object>
     </void>
     <void property="solicitudCitas">
-     <object class="java.util.ArrayList"/>
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object idref="SolicitudCita0"/>
+      </void>
+     </object>
     </void>
     <void property="tecnicos">
      <object class="java.util.ArrayList">
